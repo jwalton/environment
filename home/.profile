@@ -1,7 +1,7 @@
 # ulimit -n 256000
 
-source ./.bash_config/ps1.sh
-source ./.bash_config/aliases.sh
+source ${HOME}/.bash_config/ps1.sh
+source ${HOME}/.bash_config/aliases.sh
 
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages/
 export AWS_DEFAULT_REGION=us-east-1
@@ -17,10 +17,6 @@ fi
 # Color in LS
 export CLICOLOR=true
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 # Needed for installing node-canvas
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:/opt/X11/lib/pkgconfig
 
@@ -30,3 +26,8 @@ export MACOSX_DEPLOYMENT_TARGET=10.9
 # golang stuff
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
