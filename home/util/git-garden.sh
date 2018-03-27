@@ -7,23 +7,23 @@ git fetch --all -q
 # Prune branches that exist in refs/remotes but no longer exist on origin
 git remote prune origin > /dev/null
 
-# Find all merged remote branches and make a note of them
-# in case something goes horribly wrong
+echo 'Delete all remote branches that have been merged (saved refs in /tmp/delete-remote.log)'
+BRANCHES_TO_DELETE=$(
 git branch -r --merged origin/master |
   grep origin |
   grep -v '>' |
   grep -v master |
-  grep -v stable |
-  xargs -L 1 bash -c 'echo "$(git rev-parse $1) $1"' _ > /tmp/delete-remote.log
+  grep -v stable
+)
 
-echo 'Delete all remote branches that have been merged (saved refs in delete.log)'
-git branch -r --merged origin/master |
-  grep origin |
-  grep -v '>' |
-  grep -v master |
-  xargs -L1 |
-  awk '{sub(/origin\//,"");print}' |
+# Log the branches in case something goes horribly wrong
+echo ${BRANCHES_TO_DELETE} | xargs -L 1 bash -c 'echo "$(git rev-parse $1) $1"' _ > /tmp/delete-remote.log
+
+# Delete them all!
+echo ${BRANCHES_TO_DELETE} | \
+  xargs -L1 \
   xargs git push origin --delete > /dev/null
+
 echo "Deleted $(wc -l /tmp/delete-remote.log) branches"
 echo
 
