@@ -6,6 +6,8 @@ source ${HOME}/.bash_config/aliases.sh
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages/
 export AWS_DEFAULT_REGION=us-east-1
 
+# Reset path to work around https://github.com/creationix/nvm/issues/1652
+export PATH="/usr/local/bin:$(getconf PATH)"
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 export PATH=$PATH:~/util
