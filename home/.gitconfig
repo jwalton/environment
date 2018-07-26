@@ -1,0 +1,13 @@
+[user]
+	name = Jason Walton
+	email = jwalton@benbria.ca
+[core]
+	excludesfile = /Users/jwalton/.gitignore_global
+[alias]
+	unstash = stash pop --index
+	history = log --pretty=format:\"%h - %an: %s\"
+	cdiff = diff --word-diff=color
+	delbranch = "!git branch -D $1; git push origin --delete $1"
+	br = !git for-each-ref --count=15 --sort=-committerdate refs/heads/ --format=\"%(HEAD) %(color:yellow)%(refname:short)%(color:reset)%09%(color:cyan)%(objectname:short)%(color:reset)%09%(color:green)%(committerdate:relative)%(color:reset)%09%(authorname)\" | column -t -s $'\\t'
+[push]
+	default = upstream
