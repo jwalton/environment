@@ -20,7 +20,7 @@ unknownHost()
 
 upgradeNode()
 {
-    nvm install ${1} && nvm use ${1} && nvm alias default ${1} && npm install -g npm decaffeinate david js-beautify nsp lt
+    nvm install ${1} && nvm use ${1} && nvm alias default ${1} && npm install -g npm decaffeinate david js-beautify localtunnel commitizen cz-conventional-changelog npm-run
 }
 
 alias cqlsh='docker exec -it cassandra cqlsh'
