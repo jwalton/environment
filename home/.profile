@@ -36,3 +36,16 @@ export NVM_DIR="$HOME/.nvm"
 
 # iterm2 integration
 source ~/.iterm2_shell_integration.bash
+
+# Nix
+if [ -e /Users/jwalton/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/jwalton/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+# Add keys from keychain.
+ssh-add -A
+
+# node-canvas stuff
+export PATH="/usr/local/opt/icu4c/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+export LDFLAGS="-L/usr/local/opt/icu4c/lib -L/usr/local/opt/libffi/lib"
+export CPPFLAGS=-I/usr/local/opt/icu4c/include
+export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig:/usr/local/opt/icu4c/lib/pkgconfig"
