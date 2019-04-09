@@ -20,7 +20,7 @@ unknownHost()
 
 upgradeNode()
 {
-    nvm install ${1} && nvm use ${1} && nvm alias default ${1} && npm install -g npm decaffeinate david js-beautify localtunnel commitizen cz-conventional-changelog npm-run
+    nvm install ${1} && nvm use ${1} && nvm alias default ${1} && npm install -g npm typescript decaffeinate david js-beautify localtunnel commitizen cz-conventional-changelog npm-run
 }
 
 alias cqlsh='docker exec -it cassandra cqlsh'
@@ -49,3 +49,5 @@ alias din="aws ec2 describe-instances --query 'Reservations[].Instances[].[Insta
 alias pubpatch="npm version patch && npm push --follow-tags && npm publish"
 alias pubminor="npm version minor && npm push --follow-tags && npm publish"
 alias pubmajor="npm version major && npm push --follow-tags && npm publish"
+alias findnodes="ps -ef | grep node | grep -v Visual | grep -v Slack | grep -v Keybase | grep -v WhatsApp | grep -v erlang | grep -v mongo | grep -v grep"
+alias iphone="open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
