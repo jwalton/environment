@@ -1,0 +1,6 @@
+# To set this up:
+#
+# $ npm-run npm-merge-driver install --global
+
+npm-shrinkwrap.json merge=npm-merge-driver
+package-lock.json merge=npm-merge-driver
