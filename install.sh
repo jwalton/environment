@@ -5,3 +5,4 @@ if [ ! -e ~/.oh-my-zsh ]; then
 fi
 
 cp -r ./home/ ~/
+cp ./home/.config/zsh/jwalton.zsh-theme ~/.oh-my-zsh/custom/themes
