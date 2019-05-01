@@ -20,9 +20,6 @@ fi
 # Color in LS
 export CLICOLOR=true
 
-# Temporary hack for broken xcode (http://stackoverflow.com/questions/26563079/mac-osx-getting-segmentation-faults-on-every-c-program-even-hello-world-af)
-export MACOSX_DEPLOYMENT_TARGET=10.9
-
 # golang stuff
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
