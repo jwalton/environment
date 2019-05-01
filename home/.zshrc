@@ -92,4 +92,36 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+source ${HOME}/.config/bash/aliases.sh
+
+export AWS_DEFAULT_REGION=us-east-1
+
+export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/sbin:$PATH
+export PATH=$PATH:~/util
+export PATH="/usr/local/opt/mongodb@3.2/bin:$PATH"
+
+# golang stuff
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# iterm2 integration
 source ~/.config/zsh/.iterm2_shell_integration.zsh
+
+# Nix
+if [ -e /Users/jwalton/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/jwalton/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+# Add keys from keychain.
+ssh-add -A
+
+# node-canvas stuff
+export PATH="/usr/local/opt/icu4c/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+export LDFLAGS="-L/usr/local/opt/icu4c/lib -L/usr/local/opt/libffi/lib"
+export CPPFLAGS=-I/usr/local/opt/icu4c/include
+export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig:/usr/local/opt/icu4c/lib/pkgconfig"

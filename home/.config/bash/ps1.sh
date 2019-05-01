@@ -1,8 +1,8 @@
 PS1DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-source ${HOME}/.bash_config/colors.bash
+source ${HOME}/.config/bash/colors.bash
 # GIT PS1
-source ${HOME}/.bash_config/git-prompt.sh
+source ${HOME}/.config/bash/git-prompt.sh
 
 get_exit_status(){
    es=$?

@@ -1,7 +1,7 @@
 # ulimit -n 256000
 
-source ${HOME}/.bash_config/ps1.sh
-source ${HOME}/.bash_config/aliases.sh
+source ${HOME}/.config/bash/ps1.sh
+source ${HOME}/.config/bash/aliases.sh
 
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages/
 export AWS_DEFAULT_REGION=us-east-1
@@ -19,9 +19,6 @@ fi
 
 # Color in LS
 export CLICOLOR=true
-
-# Needed for installing node-canvas
-export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:/opt/X11/lib/pkgconfig
 
 # Temporary hack for broken xcode (http://stackoverflow.com/questions/26563079/mac-osx-getting-segmentation-faults-on-every-c-program-even-hello-world-af)
 export MACOSX_DEPLOYMENT_TARGET=10.9
