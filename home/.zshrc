@@ -126,7 +126,7 @@ ssh-add -A
 
 # node-canvas stuff
 export PATH="/usr/local/opt/icu4c/bin:$PATH"
-export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+export PATH="/Users/jwalton/Library/Python/3.7/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/icu4c/lib -L/usr/local/opt/libffi/lib"
 export CPPFLAGS=-I/usr/local/opt/icu4c/include
 export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig:/usr/local/opt/icu4c/lib/pkgconfig"
