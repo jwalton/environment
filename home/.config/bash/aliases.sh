@@ -51,3 +51,6 @@ alias pubminor="npm version minor && npm push --follow-tags && npm publish"
 alias pubmajor="npm version major && npm push --follow-tags && npm publish"
 alias findnodes="ps -ef | grep node | grep -v Visual | grep -v Slack | grep -v Keybase | grep -v WhatsApp | grep -v erlang | grep -v mongo | grep -v grep"
 alias iphone="open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
+
+alias startmongo="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb@3.2.plist"
+alias stopmongo="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb@3.2.plist"
