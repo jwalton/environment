@@ -46,5 +46,5 @@ export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig:/usr/local/opt/icu4c
 
 # coreutils
 if brew --prefix coreutils > /dev/null; then
-    export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+    export PATH="$PATH:$(brew --prefix coreutils)/libexec/gnubin"
 fi

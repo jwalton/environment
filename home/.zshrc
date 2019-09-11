@@ -101,6 +101,9 @@ export PATH=/usr/local/sbin:$PATH
 export PATH=$PATH:~/util
 export PATH="/usr/local/opt/mongodb@3.2/bin:$PATH"
 
+# pip3 stuff
+export PAHT=/Users/jwalton/Library/Python/3.7/bin/:$PATH
+
 # golang stuff
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
@@ -130,5 +133,7 @@ export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig:/usr/local/opt/icu4c
 
 # coreutils
 if brew --prefix coreutils > /dev/null; then
-    export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+    export PATH="$PATH:$(brew --prefix coreutils)/libexec/gnubin"
 fi
+
+unset PAGER
