@@ -1,0 +1,75 @@
+{
+    "editor.autoClosingBrackets": false,
+    "editor.rulers": [80,120],
+    "files.trimTrailingWhitespace": true,
+    "window.title": "${activeEditorLong}${separator}${rootName}",
+    "window.zoomLevel": 0,
+    "workbench.colorTheme": "One Monokai",
+    "gitlens.codeLens.enabled": false,
+    "gitlens.keymap": "chorded",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressResultsExplorerNotice": false,
+        "suppressShowKeyBindingsNotice": true
+    },
+    "typescript.tsdk": "/Users/jwalton/.nvm/versions/node/v10.14.1/lib/node_modules/typescript/lib/",
+    "editor.accessibilitySupport": "off",
+    "editor.codeActionsOnSave": {
+    },
+    "gitlens.historyExplorer.enabled": true,
+    "breadcrumbs.enabled": true,
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    "mocha-snippets.glob": "test/**/*.@(ts|js)",
+    "mocha-snippets.function-type": "function",
+    "gitlens.views.fileHistory.enabled": true,
+    "gitlens.views.lineHistory.enabled": true,
+    "cSpell.userWords": [
+        "Arusha",
+        "GDPR",
+        "benbria",
+        "csrf",
+        "polyfill"
+    ],
+    "editor.minimap.enabled": false,
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "files.hotExit": "onExitAndWindowClose",
+    "git.autofetch": true,
+    "editor.fontFamily": "'Cascadia Code', Menlo, Monaco, 'Courier New', monospace",
+    "[yaml]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "task.slowProviderWarning": [
+        "gulp"
+    ],
+    "vs-kubernetes": {
+        "vs-kubernetes.minikube-path": "/Users/jwalton/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
+    },
+    "todo-tree.tree.showScanModeButton": false,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "java.semanticHighlighting.enabled": true,
+}
