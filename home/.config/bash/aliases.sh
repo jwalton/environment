@@ -20,7 +20,7 @@ unknownHost()
 
 upgradeNode()
 {
-    nvm install ${1} && nvm use ${1} && nvm alias default ${1} && npm install -g npm typescript decaffeinate david js-beautify localtunnel commitizen cz-conventional-changelog npm-run
+    nvm install lts/* --reinstall-packages-from=default --latest-npm && nvm alias default node
 }
 
 alias cqlsh='docker exec -it cassandra cqlsh'
@@ -54,3 +54,7 @@ alias iphone="open /Applications/Xcode.app/Contents/Developer/Applications/Simul
 
 alias startmongo="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mongodb@3.2.plist"
 alias stopmongo="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb@3.2.plist"
+
+# Get a shell inside the Docker Moby VM:
+alias macdockersh="docker run -it --rm --privileged --pid=host justincormack/nsenter1"
+# alias macdockersh="docker run -it --rm --privileged --pid=host debian nsenter -t 1 -m -u -n -i sh"

@@ -101,8 +101,15 @@ export PATH=/usr/local/sbin:$PATH
 export PATH=$PATH:~/util
 export PATH="/usr/local/opt/mongodb@3.2/bin:$PATH"
 
+# Maven
+if [ -e /usr/local/apache-maven-3.6.3 ]; then
+    export PATH="$PATH:/usr/local/apache-maven-3.6.3/bin"
+fi
+
 # pip3 stuff
-export PAHT=/Users/jwalton/Library/Python/3.7/bin/:$PATH
+if [ -e /Users/jwalton/Library/Python/3.7 ]; then
+    export PATH=/Users/jwalton/Library/Python/3.7/bin/:$PATH
+fi
 
 # golang stuff
 export GOPATH=$HOME/go
@@ -134,6 +141,11 @@ export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig:/usr/local/opt/icu4c
 # coreutils
 if brew --prefix coreutils > /dev/null; then
     export PATH="$PATH:$(brew --prefix coreutils)/libexec/gnubin"
+fi
+
+# rbenv
+if which rbenv > /dev/null; then
+    eval "$(rbenv init -)"
 fi
 
 unset PAGER
