@@ -1,0 +1,28 @@
+// Place your key bindings in this file to overwrite the defaults
+[{
+    "key": "cmd+space",
+    "command": "editor.action.triggerSuggest",
+    "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
+}, {
+    "key": "cmd+f5",
+    "command": "workbench.action.debug.run",
+    "when": "!inDebugMode"
+}, {
+    "key": "shift+cmd+.",
+    "command": "eslint.applyAllFixes",
+    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+},
+{
+    "key": "shift+cmd+.",
+    "command": "tslint.fixAllProblems",
+    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+},
+{
+    "key": "ctrl+=",
+    "command": "workbench.action.navigateForward"
+},
+{
+    "key": "ctrl+shift+-",
+    "command": "-workbench.action.navigateForward"
+}
+]

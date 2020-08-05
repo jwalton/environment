@@ -1,0 +1,95 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"Typescript Mocha File": {
+		"prefix": "mochafile",
+		"scope": "typescript,typescriptreact",
+		"body": [
+			"import chai from 'chai';",
+			"import 'mocha';",
+			"",
+			"const { expect } = chai;",
+			"",
+			"describe('${1:Test Suite}', function() {",
+			"});"
+		],
+		"description": "A Typescript mocha file"
+	},
+	"Typescript Mocha Test Case": {
+		"prefix": "mochatest",
+		"scope": "typescript,typescriptreact",
+		"body": [
+			"it('should ${1:do the thing}', async function() {",
+			"});"
+		],
+		"description": "A Typescript mocha test case"
+	},
+	"Mocha Chai-As-Promised": {
+		"prefix": "mocha-chai-as-promised",
+		"scope": "typescript,typescriptreact,javascript,javascriptreact",
+		"body": [
+			"import chai from 'chai';",
+			"import chaiAsPromised from 'chai-as-promised';",
+			"",
+			"chai.use(chaiAsPromised);"
+		],
+		"description": "A Typescript mocha test case"
+	},
+	"Mocha String": {
+		"prefix": "mocha-chai-string",
+		"scope": "typescript,typescriptreact,javascript,javascriptreact",
+		"body": [
+			"import chai from 'chai';",
+			"import chaiString from 'chai-string';",
+			"",
+			"chai.use(chaiString);"
+		],
+		"description": "A Typescript mocha test case"
+	},
+	"Mocha Sinon Sandbox": {
+		"prefix": "mocha-sandbox",
+		"scope": "javascript,javascriptreact",
+		"body": [
+			"let sandbox;",
+			"",
+			"beforeEach(function() {",
+			"    sandbox = sinon.sandbox.create();",
+			"});",
+			"",
+			"afterEach(function() {",
+			"    sandbox.restore();",
+			"});"
+		],
+		"description": "Setup a sinon sandbox in a mocha test"
+	},
+	"Mocha Sinon Sandbox TS": {
+		"prefix": "mocha-sandbox",
+		"scope": "typescript,typescriptreact",
+		"body": [
+			"let sandbox: sinon.SinonSandbox;",
+			"",
+			"beforeEach(function() {",
+			"    sandbox = sinon.sandbox.create();",
+			"});",
+			"",
+			"afterEach(function() {",
+			"    sandbox.restore();",
+			"});"
+		],
+		"description": "Setup a sinon sandbox in a mocha test"
+	},
+}
