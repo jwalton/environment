@@ -1,8 +1,9 @@
 [user]
 	name = Jason Walton
-	email = jwalton@benbria.ca
+	email = jwalton@solinkcorp.com
 [core]
 	excludesfile = /Users/jwalton/.gitignore_global
+	pager = less -F -X
 [alias]
 	unstash = stash pop --index
 	history = log --pretty=format:\"%h - %an: %s\"
