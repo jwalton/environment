@@ -166,8 +166,23 @@ defaults write NSGlobalDomain AppleMetricUnits -bool true
 # Show language menu in the top right corner of the boot screen
 # sudo defaults write /Library/Preferences/com.apple.loginwindow showInputMenu -bool true
 
+# Show audio settings in menu bar
+if ! defaults read com.apple.systemuiserver "menuExtras" | grep "Volume.menu" > /dev/null; then
+	defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.volume" -bool true
+	defaults write com.apple.systemuiserver "menuExtras" -array-add "/System/Library/CoreServices/Menu Extras/Volume.menu"
+fi
+
+# Show bluetooth settings in menu bar
+if ! defaults read com.apple.systemuiserver "menuExtras" | grep "Bluetooth.menu" > /dev/null; then
+	defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.bluetooth" -bool true
+	defaults write com.apple.systemuiserver "menuExtras" -array-add "/System/Library/CoreServices/Menu Extras/Bluetooth.menu"
+fi
+
 # Set the timezone; see `sudo systemsetup -listtimezones` for other values
 sudo systemsetup -settimezone "America/Montreal" > /dev/null
+
+# Show date and use 24 hour clock in menu bar
+defaults write com.apple.menuextra.clock DateFormat "EEE MMM d  HH:mm"
 
 # Stop iTunes from responding to the keyboard media keys
 #launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
