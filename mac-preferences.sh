@@ -184,6 +184,9 @@ sudo systemsetup -settimezone "America/Montreal" > /dev/null
 # Show date and use 24 hour clock in menu bar
 defaults write com.apple.menuextra.clock DateFormat "EEE MMM d  HH:mm"
 
+# Show percentage for battery
+defaults write com.apple.menuextra.battery ShowPercent YES
+
 # Stop iTunes from responding to the keyboard media keys
 #launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
 
