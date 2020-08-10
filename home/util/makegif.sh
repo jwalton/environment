@@ -3,6 +3,11 @@
 
 # From https://github.com/skickar/MakeGifMacOS
 
+if ! which ffmpeg > /dev/null; then
+  echo "Need ffmpeg installed."
+  exit 1
+fi
+
 WIDTH=${2:-500}
 OUTFILE=${3:-out}
 FRAMERATE=${4:-10}
