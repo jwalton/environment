@@ -41,4 +41,14 @@ echo Installing iMovie
 mas install 408981434
 # 682658836 GarageBand (10.3.5)
 
+brewCaskInstall () {
+    if brew cask list $1 > /dev/null; then
+        echo "$1 already installed"
+    else
+        brew cask install $1
+    fi
+}
+
+brewCaskInstall veracrypt
+
 ./install.sh
