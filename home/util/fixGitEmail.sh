@@ -72,6 +72,10 @@ then
 fi
 ' --tag-name-filter cat -- --branches --tags
 
+# git filter-branch --commit-filter 'if [ "$GIT_AUTHOR_NAME" = "Jason Walton" ];
+#   then export GIT_AUTHOR_EMAIL=dev@lucid.thedreaming.org;
+#   fi; git commit-tree "$@"'
+
 echo Review to make sure it worked, then:
 echo
 echo     git push --force --tags origin 'refs/heads/*'
