@@ -11,4 +11,4 @@ if [ -z "${1}" ]; then
 fi
 
 
-ffmpeg -i $1 -pix_fmt rgb24 -r 10 ${OUTFILE}
+ffmpeg -i "$1" -pix_fmt rgb24 -r 10 ${OUTFILE}
