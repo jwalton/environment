@@ -56,3 +56,7 @@ brewCaskInstall () {
 brewCaskInstall veracrypt
 
 ./install.sh
+
+# If we don't run this command, then the mac will change it's
+# hostname from DHCP.  See https://apple.stackexchange.com/questions/272036/how-to-refuse-dhcp-server-to-change-my-hostname.
+Echo 'Please run "sudo scutil --set HostName yourcomputername"'
