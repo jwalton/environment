@@ -23,6 +23,10 @@ if ! which gh > /dev/null; then
     echo Installing GitHub CLI
     brew install gh
 fi
+if ! which aws > /dev/null; then
+    echo Installing AWS CLI
+    brew install awscli
+fi
 echo Installing Xcode
 mas install 497799835
 echo Installing Slack
