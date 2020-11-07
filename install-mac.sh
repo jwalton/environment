@@ -27,6 +27,10 @@ if ! which aws > /dev/null; then
     echo Installing AWS CLI
     brew install awscli
 fi
+if ! which ip > /dev/null; then
+    echo Installing iproute2mac
+    brew install iproute2mac
+fi
 echo Installing Xcode
 mas install 497799835
 echo Installing Slack
