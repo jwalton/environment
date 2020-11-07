@@ -25,6 +25,11 @@ upgradeNode()
 
 alias cqlsh='docker exec -it cassandra cqlsh'
 
+youtube-mp3()
+{
+    youtube-dl -x --audio-format mp3 --audio-quality 0 "$1"
+}
+
 search()
 {
     if [ $# -eq 1 ] ; then

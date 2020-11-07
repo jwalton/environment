@@ -31,6 +31,10 @@ if ! which ip > /dev/null; then
     echo Installing iproute2mac
     brew install iproute2mac
 fi
+if ! which ip > /dev/null; then
+    echo Installing youtube-dl
+    brew install youtube-dl
+fi
 echo Installing Xcode
 mas install 497799835
 echo Installing Slack
