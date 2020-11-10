@@ -9,7 +9,7 @@ fi
 
 echo Copying files...
 cp -r ./home/ ~/
-cp ./home/.config/zsh/jwalton.zsh-theme ~/.oh-my-zsh/custom/themes
+cp ./oh-my-zsh-themes/* ~/.oh-my-zsh/custom/themes
 
 if ! which nvm > /dev/null; then
     echo Installing nvm

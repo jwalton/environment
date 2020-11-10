@@ -93,6 +93,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 source ${HOME}/.config/bash/aliases.sh
+source ${HOME}/.config/bash/posh-git-sh.sh
 
 export AWS_DEFAULT_REGION=us-east-1
 

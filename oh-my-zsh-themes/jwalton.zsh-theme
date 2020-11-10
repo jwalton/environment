@@ -8,7 +8,7 @@ local prompt_user="${prompt_color}[%n@%m %~]"
 local ret_status="%(?..%{$fg_bold[red]%}⚠ )"
 local prompt_marker="%(!.#.$)"
 
-PROMPT='${prompt_time} ${prompt_user} $(git_prompt_info)${ret_status}${prompt_color}${prompt_marker}%{$reset_color%} '
+PROMPT='${prompt_time} ${prompt_user} $(__posh_git_echo)${ret_status}${prompt_color}${prompt_marker}%{$reset_color%} '
 
 ZSH_THEME_GIT_PROMPT_PREFIX="${git_color}("
 ZSH_THEME_GIT_PROMPT_SUFFIX="${prompt_color} "
