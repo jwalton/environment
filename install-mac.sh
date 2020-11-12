@@ -31,7 +31,7 @@ if ! which ip > /dev/null; then
     echo Installing iproute2mac
     brew install iproute2mac
 fi
-if ! which ip > /dev/null; then
+if ! which youtube-dl > /dev/null; then
     echo Installing youtube-dl
     brew install youtube-dl
 fi
@@ -67,6 +67,7 @@ brewCaskInstall () {
 
 brewCaskInstall veracrypt
 
+./install-common.sh
 ./install.sh
 
 # If we don't run this command, then the mac will change it's
