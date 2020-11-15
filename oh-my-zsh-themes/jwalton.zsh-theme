@@ -1,5 +1,19 @@
 # See /usr/share/zsh/5.3/functions/colors for color info (found from $fpath).
+
+# To set a specific color for the prompt on this host, add this to your ~/.zprofile:
+#
+#  autoload -U colors && colors
+#  export HOST_COLOR="$fg_bold[yellow]"
+#
+
 local prompt_color="%{$fg_bold[blue]%}"
+if [ -n "${HOST_COLOR}" ]; then
+    prompt_color="%{$HOST_COLOR%}"
+elif [ -n "${SSH_TTY}" ]; then
+    # SSHed in from another machine
+    prompt_color="%{$fg_bold[green]%}"
+fi
+
 local git_color="%{$fg_bold[yellow]%}"
 
 local prompt_time="%{$fg_bold[black]%}%D{%H:%M:%S}"
