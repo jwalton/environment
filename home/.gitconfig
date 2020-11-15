@@ -2,7 +2,7 @@
 	name = Jason Walton
 	email = jwalton@solinkcorp.com
 [core]
-	excludesfile = /Users/jwalton/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	pager = less -F -X
 [alias]
 	unstash = stash pop --index

@@ -1,1 +1,1 @@
-export PATH="$HOME/.cargo/bin:$PATH"
+source ${HOME}/.config/profilecommon.sh

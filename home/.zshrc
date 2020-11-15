@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/jwalton/.oh-my-zsh"
+export ZSH="${HOME}/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -92,61 +92,11 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source ${HOME}/.config/bash/aliases.sh
 source ${HOME}/.config/bash/posh-git-sh.sh
-
-export AWS_DEFAULT_REGION=us-east-1
-
-export PATH=/usr/local/bin:$PATH
-export PATH=/usr/local/sbin:$PATH
-export PATH=$PATH:~/util
-export PATH="/usr/local/opt/mongodb@3.2/bin:$PATH"
-
-# Maven
-if [ -e /usr/local/apache-maven-3.6.3 ]; then
-    export PATH="$PATH:/usr/local/apache-maven-3.6.3/bin"
-fi
-
-# pip3 stuff
-if [ -e /Users/jwalton/Library/Python/3.7 ]; then
-    export PATH=/Users/jwalton/Library/Python/3.7/bin/:$PATH
-fi
-
-# golang stuff
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 source ~/.config/zsh/npm.zsh
 
 # iterm2 integration
 source ~/.config/zsh/.iterm2_shell_integration.zsh
-
-# Nix
-if [ -e /Users/jwalton/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/jwalton/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-
-# Add keys from keychain.
-ssh-add -A
-
-# node-canvas stuff
-export PATH="/usr/local/opt/icu4c/bin:$PATH"
-export PATH="/Users/jwalton/Library/Python/3.7/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/icu4c/lib -L/usr/local/opt/libffi/lib"
-export CPPFLAGS=-I/usr/local/opt/icu4c/include
-export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig:/usr/local/opt/icu4c/lib/pkgconfig"
-
-# coreutils
-if brew --prefix coreutils > /dev/null; then
-    export PATH="$PATH:$(brew --prefix coreutils)/libexec/gnubin"
-fi
-
-# rbenv
-if which rbenv > /dev/null; then
-    eval "$(rbenv init -)"
-fi
 
 unset PAGER

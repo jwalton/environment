@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-
 set -e
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 if ! which brew > /dev/null; then
     echo Installing brew
@@ -12,9 +13,12 @@ else
 fi
 
 echo Setting up preferences
-./mac-preferences.sh
+$DIR/mac-preferences.sh
 
-echo Installing mac apps
+echo Installing Apps
+$DIR/install-rust.sh
+$DIR/install-nvm.sh
+
 if ! which mas > /dev/null; then
     echo Installing mas
     brew install mas
@@ -65,10 +69,9 @@ brewCaskInstall () {
     fi
 }
 
-brewCaskInstall veracrypt
-
-./install-common.sh
-./install.sh
+if [ ! -e /Applications/VeraCrypt.app ]; then
+    brewCaskInstall veracrypt
+fi
 
 # If we don't run this command, then the mac will change it's
 # hostname from DHCP.  See https://apple.stackexchange.com/questions/272036/how-to-refuse-dhcp-server-to-change-my-hostname.

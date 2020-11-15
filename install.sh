@@ -1,19 +1,29 @@
 #!/usr/bin/env bash
 
 echo Setting up zsh...
-chsh -s /bin/zsh
-if [ ! -e ~/.oh-my-zsh ]; then
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+if ! which zsh; then
+    if ! which apt; then
+        echo "Can't install zsh!"
+    else
+        sudo apt install zsh -y
+    fi
 fi
 
-echo Copying files...
-cp -r ./home/ ~/
-cp ./oh-my-zsh-themes/* ~/.oh-my-zsh/custom/themes
-
-if ! which nvm > /dev/null; then
-    echo Installing nvm
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+if which zsh; then
+    chsh -s $(which zsh)
+    if [ ! -e ~/.oh-my-zsh ]; then
+        echo "Installing oh-my-zsh"
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+        git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    fi
 fi
+
+./scripts/install-homedir.sh
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    ./scripts/install-mac.sh
+fi
+
+./scripts/install-vscode.sh
 
 echo Done!

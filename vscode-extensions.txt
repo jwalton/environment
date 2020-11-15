@@ -1,5 +1,8 @@
 # List of Visual Studio Code extensions to install.
 # Blank lines and lines that start with '#' will be ignored.
+#
+# Run ./scripts/install-vscode.sh to install these, and to copy
+# preferences out of vscode/prefs into your VCode folder.
 
 # Color theme
 azemoh.one-monokai
