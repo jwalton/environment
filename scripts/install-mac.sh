@@ -25,6 +25,18 @@ brew_install() {
     fi
 }
 
+# brew_cask_install "cask"
+INSTALLED_CASKS=$(brew list --cask)
+brew_cask_install () {
+    CASK=$1
+    if echo ${INSTALLED_CASKS} | grep ${CASK} > /dev/null; then
+        log_debug "brew cask: $CASK already installed"
+    else
+        log "brew cask: Installing $CASK"
+        brew cask install $CASK
+    fi
+}
+
 # mas_install "packageid" "description"
 mas_install() {
     PKGID=$1
@@ -34,17 +46,6 @@ mas_install() {
       mas install ${PKGID}
     else
       log_debug "mas: ${DESC} is already installed"
-    fi
-}
-
-INSTALLED_CASKS=$(brew list --cask)
-brewCaskInstall () {
-    CASK=$1
-    if echo ${INSTALLED_CASKS} | grep ${CASK} > /dev/null; then
-        log_debug "brew cask: $CASK already installed"
-    else
-        log "brew cask: Installing $CASK"
-        brew cask install $CASK
     fi
 }
 
@@ -80,8 +81,8 @@ mas_install 409203825 "Numbers"
 mas_install 408981434 "iMovie"
 # mas_install 682658836 "GarageBand"
 
-brewCaskInstall "osxfuse"
-brewCaskInstall "veracrypt"
+brew_cask_install "osxfuse"
+brew_cask_install "veracrypt"
 
 # If we don't run this command, then the mac will change it's
 # hostname from DHCP.  See https://apple.stackexchange.com/questions/272036/how-to-refuse-dhcp-server-to-change-my-hostname.
