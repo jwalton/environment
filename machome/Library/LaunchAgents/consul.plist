@@ -11,7 +11,7 @@
     <string>consul</string>
     <key>ProgramArguments</key>
     <array>
-      <string>/Users/jwalton/util/consul</string>
+      <string>/Users/jwalton/bin/consul</string>
       <string>agent</string>
       <string>-dev</string>
       <string>-data-dir=/Users/jwalton/.consul</string>

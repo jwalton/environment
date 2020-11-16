@@ -1,4 +1,4 @@
-source ${HOME}/.config/bash/aliases.sh
+source ${HOME}/.config/aliases.sh
 
 export AWS_DEFAULT_REGION=us-east-1
 
@@ -12,18 +12,43 @@ if [ -e /usr/local ]; then
     export PATH=/usr/local/sbin:$PATH
 fi
 
-export PATH="$PATH:$HOME/util"
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
 
 # Use for e.g. synology where we have /opt/bin/ipkg
 if [ -e /opt/bin ]; then
     export PATH="/opt/bin:$PATH"
 fi
 
-# nvm/node.js
+# This lazy loads NVM, based on code from http://broken-by.me/lazy-load-nvm/
 if [ -e "$HOME/.nvm" ]; then
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+    load_nvm() {
+        export NVM_DIR="$HOME/.nvm"
+        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+        [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+    }
+    nvm() {
+        unset -f nvm
+        load_nvm
+        nvm "$@"
+    }
+    node() {
+        unset -f node
+        load_nvm
+        node "$@"
+    }
+    npm() {
+        unset -f npm
+        load_nvm
+        npm "$@"
+    }
 fi
 
 # rust
@@ -45,11 +70,6 @@ fi
 # pip3 stuff
 if [ -e "$HOME/Library/Python/3.7" ]; then
     export PATH="$HOME/Library/Python/3.7/bin/:$PATH"
-fi
-
-# coreutils
-if [ -e /usr/local/bin/brew ] && brew --cellar coreutils > /dev/null 2>&1; then
-    export PATH="$PATH:$(brew --prefix coreutils)/libexec/gnubin"
 fi
 
 # rbenv
