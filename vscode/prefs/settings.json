@@ -1,5 +1,5 @@
 {
-    "editor.autoClosingBrackets": false,
+    "editor.autoClosingBrackets": "never",
     "editor.rulers": [80,120],
     "files.trimTrailingWhitespace": true,
     "window.title": "${activeEditorLong}${separator}${rootName}",
@@ -18,7 +18,7 @@
         "suppressResultsExplorerNotice": false,
         "suppressShowKeyBindingsNotice": true
     },
-    "typescript.tsdk": "/Users/jwalton/.nvm/versions/node/v10.14.1/lib/node_modules/typescript/lib/",
+    "typescript.tsdk": "${env:HOME}/.nvm/versions/node/v10.14.1/lib/node_modules/typescript/lib/",
     "editor.accessibilitySupport": "off",
     "editor.codeActionsOnSave": {
     },
@@ -64,7 +64,7 @@
         "gulp"
     ],
     "vs-kubernetes": {
-        "vs-kubernetes.minikube-path": "/Users/jwalton/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
+        "vs-kubernetes.minikube-path": "${env:HOME}/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
     },
     "todo-tree.tree.showScanModeButton": false,
     "editor.suggestSelection": "first",
