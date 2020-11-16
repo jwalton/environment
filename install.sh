@@ -11,7 +11,7 @@ if ! which zsh > /dev/null; then
         exit 1
     fi
 fi
-if ! which curl; then
+if ! which curl > /dev/null; then
     if which apt; then
         sudo apt install curl -y
     else
