@@ -2,77 +2,87 @@
 set -e
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+source "${DIR}/common.sh"
 
 if ! which brew > /dev/null; then
-    echo Installing brew
+    log "Installing brew"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     brew install git
 else
-    echo Updating brew
+    log "Updating brew"
     brew update
 fi
 
-echo Setting up preferences
-$DIR/mac-preferences.sh
-
-echo Installing Apps
-$DIR/install-rust.sh
-$DIR/install-nvm.sh
-
-if ! which mas > /dev/null; then
-    echo Installing mas
-    brew install mas
-fi
-if ! which gh > /dev/null; then
-    echo Installing GitHub CLI
-    brew install gh
-fi
-if ! which aws > /dev/null; then
-    echo Installing AWS CLI
-    brew install awscli
-fi
-if ! which ip > /dev/null; then
-    echo Installing iproute2mac
-    brew install iproute2mac
-fi
-if ! which youtube-dl > /dev/null; then
-    echo Installing youtube-dl
-    brew install youtube-dl
-fi
-echo Installing Xcode
-mas install 497799835
-echo Installing Slack
-mas install 803453959
-echo Installing WhatsApp
-mas install 1147396723
-echo Installing Telegram
-mas install 747648890
-echo Installing Microsoft OneNote
-mas install 784801555
-echo Installing Microsoft To Do
-mas install 1274495053
-echo Installing Keynote
-mas install 409183694
-echo Installing Pages
-mas install 409201541
-echo Installing Numbers
-mas install 409203825
-echo Installing iMovie
-mas install 408981434
-# 682658836 GarageBand (10.3.5)
-
-brewCaskInstall () {
-    if brew cask list $1 > /dev/null; then
-        echo "$1 already installed"
+# brew_install "brew-formula" "description"
+brew_install() {
+    PKG=$1
+    DESC=${3:-$1}
+    if ! brew ls --version ${PKG} > /dev/null; then
+        log "brew: Installing ${DESC}"
+        brew install ${PKG}
     else
-        brew cask install $1
+        log_debug "brew: ${DESC} is already installed"
     fi
 }
 
-if [ ! -e /Applications/VeraCrypt.app ]; then
-    brewCaskInstall veracrypt
+# mas_install "packageid" "description"
+mas_install() {
+    PKGID=$1
+    DESC=$2
+    if ! mas list | grep ${PKGID} > /dev/null; then
+      log "mas: Installing ${DESC}"
+      mas install ${PKGID}
+    else
+      log_debug "mas: ${DESC} is already installed"
+    fi
+}
+
+INSTALLED_CASKS=$(brew list --cask)
+brewCaskInstall () {
+    CASK=$1
+    if echo ${INSTALLED_CASKS} | grep ${CASK} > /dev/null; then
+        log_debug "brew cask: $CASK already installed"
+    else
+        log "brew cask: Installing $CASK"
+        brew cask install $CASK
+    fi
+}
+
+log "Setting up preferences"
+if [ ! -e ${HOME}/.config/.mac-preferences-set ]; then
+    $DIR/mac-preferences.sh
+    touch ${HOME}/.config/.mac-preferences-set
+else
+    log_warn "WARNING: Refusing to re-run mac preferences."
+    log_warn "Run $DIR/mac-preferences.sh to do so manually."
 fi
+
+log "Installing Apps"
+
+$DIR/install-rust.sh
+$DIR/install-nvm.sh
+
+brew_install "mas"
+brew_install "gh" "GitHub CLI"
+brew_install "awscli"
+brew_install "iproute2mac"
+brew_install "youtube-dl"
+
+mas_install 497799835 "Xcode"
+mas_install 803453959 "Slack"
+mas_install 1147396723 "WhatsApp"
+mas_install 747648890 "Telegram"
+mas_install 784801555 "Microsoft OneNote"
+mas_install 1274495053 "Microsoft To Do"
+mas_install 409183694 "Keynote"
+mas_install 409201541 "Pages"
+mas_install 409203825 "Numbers"
+mas_install 408981434 "iMovie"
+# mas_install 682658836 "GarageBand"
+
+brewCaskInstall "osxfuse"
+brewCaskInstall "veracrypt"
 
 # If we don't run this command, then the mac will change it's
 # hostname from DHCP.  See https://apple.stackexchange.com/questions/272036/how-to-refuse-dhcp-server-to-change-my-hostname.
-Echo 'Please run "sudo scutil --set HostName yourcomputername"'
+log 'Please run "sudo scutil --set HostName yourcomputername"'

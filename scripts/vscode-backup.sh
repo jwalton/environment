@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Run this to backup vscode settings
+set -e
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
