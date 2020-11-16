@@ -78,3 +78,5 @@ fi
 # Add keys from keychain.
 # ssh-add -A
 
+export GPG_TTY=$(tty)
+gpgconf --launch gpg-agent

@@ -68,6 +68,7 @@ brew_install "gh" "GitHub CLI"
 brew_install "awscli"
 brew_install "iproute2mac"
 brew_install "youtube-dl"
+brew_install "gpg"
 
 mas_install 497799835 "Xcode"
 mas_install 803453959 "Slack"

@@ -1,6 +1,7 @@
 [user]
 	name = Jason Walton
 	email = jwalton@solinkcorp.com
+	signingkey = F61BFCB8
 [core]
 	excludesfile = ~/.gitignore_global
 	pager = less -F -X
@@ -14,3 +15,7 @@
 	default = upstream
 [pull]
 	ff = only
+[commit]
+	gpgSign = true
+[tag]
+	gpgSign = true
