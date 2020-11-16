@@ -1,5 +1,3 @@
-source ${HOME}/.config/aliases.sh
-
 export AWS_DEFAULT_REGION=us-east-1
 
 # Reset path to work around https://github.com/creationix/nvm/issues/1652

@@ -63,13 +63,3 @@ alias stopmongo="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mongodb@3
 # Get a shell inside the Docker Moby VM:
 alias macdockersh="docker run -it --rm --privileged --pid=host justincormack/nsenter1"
 # alias macdockersh="docker run -it --rm --privileged --pid=host debian nsenter -t 1 -m -u -n -i sh"
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-if [ "$LC_TERMINAL" = "iTerm2" ]; then
-    alias alert='echo $'\''\033]9;'\''"$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"$'\''\007'\'''
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-    alias alert="Alert not supported. :("
-else
-    alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-fi

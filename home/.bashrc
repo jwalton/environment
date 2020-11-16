@@ -66,3 +66,15 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+source ${HOME}/.config/bash/ps1.sh
+
+if which brew > /dev/null && [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
+
+# Color in LS
+export CLICOLOR=true
+
+# iterm2 integration
+source ~/.iterm2_shell_integration.bash
