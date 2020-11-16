@@ -8,6 +8,7 @@ if ! which zsh > /dev/null; then
         sudo apt install zsh -y
     else
         log_error "Can't install zsh!"
+        exit 1
     fi
 fi
 if ! which curl; then
@@ -15,11 +16,12 @@ if ! which curl; then
         sudo apt install curl -y
     else
         log_error "Can't install curl!"
+        exit 1
     fi
 fi
 
-ZSH=$(which zsh)
-if [ -n "${ZSH}" ] && [ "${ZSH}" != "${SHELL}" ]; then
+ZSH_INSTALLED=$(which zsh)
+if [ -n "${ZSH_INSTALLED}" ] && [ "${ZSH_INSTALLED}" != "${SHELL}" ]; then
     log "Setting default shell to zsh"
     chsh -s $(which zsh)
 fi

@@ -6,7 +6,7 @@ source "${DIR}/common.sh"
 
 if ! which code > /dev/null; then
     log_error "VSCode not installed - skipping installation of extensions."
-    log_error "After installing VSCode, run ./scripts/vscode.sh"
+    log_error "After installing VSCode, run ./scripts/install-vscode.sh"
 else
     CODE_PREFS_DIR="${HOME}/.config/Code/User"
     if [[ "$OSTYPE" == "darwin"* ]]; then
