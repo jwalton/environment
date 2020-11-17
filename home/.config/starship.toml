@@ -29,7 +29,7 @@ format = "@[$hostname]($style) "
 style = "bright-blue"
 
 [cmd_duration]
-format = "[\($duration\)]($style) "
+format = '[\($duration\)]($style) '
 
 [directory]
 truncation_length = 3
