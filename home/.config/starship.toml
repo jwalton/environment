@@ -1,0 +1,72 @@
+# Don't print a new line at the start of the prompt
+add_newline = false
+
+#($git_branch$git_commit$git_status $git_state)
+format = '''
+$time$shlvl$cmd_duration[\[$username$hostname${directory}\]](bright-blue) $nodejs$rust${custom.poshgit}$character
+'''
+
+# Replace the "❯" symbol in the prompt with "➜"
+# [character]                            # The name of the module we are configuring is "character"
+# success_symbol = "[➜](bold green)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
+[character]
+success_symbol = '[\$](bright-blue)'
+error_symbol = '[\$](bright-red)'
+
+[time]
+disabled = false
+format = "[$time]($style) "
+style = "bright-black"
+
+[username]
+#show_always = true
+style_user = "bright-blue"
+format = "[$user]($style)"
+
+[hostname]
+#ssh_only = false
+format = "@[$hostname]($style) "
+style = "bright-blue"
+
+[directory]
+truncation_length = 3
+truncation_symbol = "…/"
+format = "[$path]($style)[$read_only]($read_only_style)"
+style = "bright-blue"
+
+[custom.poshgit]
+command = "~/bin/posh-git.sh"
+when = "ls"
+
+[git_branch]
+style = "bright-cyan"
+format = "[$branch]($style) "
+
+[git_commit]
+style = "bright-cyan"
+format = "[\\($hash\\)]($style) ([\\($tag\\)]($style) )"
+
+[git_status]
+#format="$conflicted$ahead_behind ( $stashed)"
+#conflicted = "!"
+format='([\[$conflicted$deleted$renamed$modified$staged$untracked$ahead_behind( $stashed)\]]($style) )'
+ahead = "⇡${count}"
+behind = "↓${count}"
+diverged = "⇣${behind_count} ⇡${ahead_count}"
+conflicted = '=${count}'
+untracked = '?${count}'
+modified = '!${count}'
+staged = '+${count}'
+renamed = '»${count}'
+deleted = '-${count}'
+
+
+[nodejs]
+format="[$symbol$version]($style) "
+symbol="n:"
+style="bold yellow"
+
+[rust]
+format="[$symbol$version]($style) "
+symbol="⚙ "
+style="red"

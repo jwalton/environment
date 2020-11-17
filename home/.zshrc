@@ -100,3 +100,7 @@ source ~/.config/zsh/npm.zsh
 source ~/.config/zsh/.iterm2_shell_integration.zsh
 
 unset PAGER
+
+if which starship > /dev/null; then
+    eval "$(starship init zsh)"
+fi

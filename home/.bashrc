@@ -78,3 +78,7 @@ export CLICOLOR=true
 
 # iterm2 integration
 source ~/.iterm2_shell_integration.bash
+
+if which starship > /dev/null; then
+    eval "$(starship init bash)"
+fi

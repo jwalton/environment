@@ -69,6 +69,7 @@ brew_install "awscli"
 brew_install "iproute2mac"
 brew_install "youtube-dl"
 brew_install "gpg"
+brew_install "starship"
 
 mas_install 497799835 "Xcode"
 mas_install 803453959 "Slack"

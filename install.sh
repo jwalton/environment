@@ -35,6 +35,8 @@ fi
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     ./scripts/install-mac.sh
+elif [[ "$OSTYPE" == "linux"* ]]; then
+    ./scripts/install-linux.sh
 fi
 
 ./scripts/install-vscode.sh
