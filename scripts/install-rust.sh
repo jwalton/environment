@@ -10,6 +10,7 @@ if ! which rustup > /dev/null; then
     curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh -s -- --no-modify-path
     source "${HOME}/.cargo/env"
     rustup update
+    export PATH="$HOME/.cargo/bin:$PATH"
 else
     log_debug "Rust already installed"
 fi

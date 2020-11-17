@@ -5,7 +5,7 @@ source "./scripts/common.sh"
 log "Setting up zsh..."
 if ! which zsh > /dev/null; then
     if which apt > /dev/null; then
-        sudo apt install zsh -y
+        sudo apt install -yqq zsh
     else
         log_error "Can't install zsh!"
         exit 1
@@ -13,7 +13,7 @@ if ! which zsh > /dev/null; then
 fi
 if ! which curl > /dev/null; then
     if which apt; then
-        sudo apt install curl -y
+        sudo apt install -yqq curl
     else
         log_error "Can't install curl!"
         exit 1
@@ -21,6 +21,10 @@ if ! which curl > /dev/null; then
 fi
 
 ZSH_INSTALLED=$(which zsh)
+if [ -z ${ZSH_INSTALLED} ]; then
+    log_error "No zsh found!"
+    exit 1
+fi
 if [ -n "${ZSH_INSTALLED}" ] && [ "${ZSH_INSTALLED}" != "${SHELL}" ]; then
     log "Setting default shell to zsh"
     chsh -s $(which zsh)
