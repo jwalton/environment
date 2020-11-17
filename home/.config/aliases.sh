@@ -20,7 +20,7 @@ unknownHost()
 
 upgradeNode()
 {
-    nvm install lts/* --reinstall-packages-from=default --latest-npm && nvm alias default node
+    nvm install "lts/*" --reinstall-packages-from=default --latest-npm && nvm alias default node
 }
 
 alias cqlsh='docker exec -it cassandra cqlsh'
