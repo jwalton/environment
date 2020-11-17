@@ -5,7 +5,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 source "${DIR}/common.sh"
 
 # Backup git singing key
-GIT_SIGNING_KEY=$(git config --global user.signingkey)
+GIT_SIGNING_KEY=$(git config --global user.signingkey || echo "")
 
 log "Copying files..."
 cp -r "${DIR}/../home/." "${HOME}/"
@@ -17,7 +17,6 @@ if [ -z "${GIT_SIGNING_KEY}" ]; then
 else
     git config --global user.signingkey "${GIT_SIGNING_KEY}"
 fi
-
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     log "Copying Mac files..."
