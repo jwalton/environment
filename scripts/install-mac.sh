@@ -70,6 +70,11 @@ brew_install "iproute2mac"
 brew_install "youtube-dl"
 brew_install "gpg"
 brew_install "starship"
+brew_install "python3"
+
+if ! which pip > /dev/null; then
+    sudo easy_install pip
+fi
 
 mas_install 497799835 "Xcode"
 mas_install 803453959 "Slack"
