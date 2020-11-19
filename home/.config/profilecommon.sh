@@ -66,8 +66,8 @@ if [ -e /usr/local/apache-maven-3.6.3 ]; then
 fi
 
 # pip3 stuff
-if [ -e "$HOME/Library/Python/3.7" ]; then
-    export PATH="$HOME/Library/Python/3.7/bin/:$PATH"
+if [ -e "$HOME/Library/Python/3.9" ]; then
+    export PATH="$HOME/Library/Python/3.9/bin/:$PATH"
 fi
 
 # rbenv
