@@ -22,5 +22,22 @@
 			"import React from 'react';",
 		],
 		"description": "Import react."
-	},
+    },
+    "react function componet": {
+        "scope": "typescriptreact",
+        "prefix": "rrrfn",
+        "body": [
+            "import React from 'react';",
+            "",
+            "interface ${1:MyComponent}Props {",
+            "}",
+            "",
+            "const ${1:MyComponent}: React.FC<${1:MyComponent}Props> = (props) => {",
+            "  return <div>Hello World</div>;",
+            "}",
+            "",
+            "export default React.memo(${1:MyComponent});",
+        ],
+        "description": "React function component"
+    }
 }
