@@ -54,7 +54,7 @@ delete_local_merged() {
   fi
 }
 
-log "$(date)"
+log "$(date) - Running in $(pwd)"
 
 # Get the latest state from the origin
 git fetch --all -q
