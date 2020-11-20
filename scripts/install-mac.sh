@@ -86,6 +86,8 @@ mas_install 408981434 "iMovie"
 
 brew_cask_install "osxfuse"
 brew_cask_install "veracrypt"
+# Handy graphical hex editor, with diff.
+brew_cask_install "hex-fiend"
 
 # If we don't run this command, then the mac will change it's
 # hostname from DHCP.  See https://apple.stackexchange.com/questions/272036/how-to-refuse-dhcp-server-to-change-my-hostname.
