@@ -1,43 +1,81 @@
 #!/usr/bin/env bash
 set -e
 
+DEFAULT_BRANCH=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')
+
+echo "Default branch is ${DEFAULT_BRANCH}"
+
+log() {
+  echo "${1}"
+  echo "${1}" >> /tmp/git-garden-delete.log
+}
+
+# Given a list of branches, print them and their short hashes.
+print_branches() {
+  BRANCHES=$1
+  PREFIX=$2
+  echo "$BRANCHES" | xargs -L1 -I'{}' bash -c 'printf "%s%-60s %s\n" "'"$PREFIX"'" "{}" "$(git rev-parse --short {})"'
+}
+
+# Delete merged branches from the origin
+delete_origin_merged() {
+  TARGET_BRANCH=$1
+  BRANCHES_TO_DELETE=$(
+    git branch -r --merged "origin/${TARGET_BRANCH}" |
+      grep origin |
+      grep -v '>' |
+      grep -v master |
+      grep -v "${DEFAULT_BRANCH}" || echo ""
+  )
+
+  if [ -n "${BRANCHES_TO_DELETE}" ]; then
+    log "Delete remote branches merged to ${TARGET_BRANCH}:"
+    print_branches "$BRANCHES_TO_DELETE" "  "
+    print_branches "$BRANCHES_TO_DELETE" "  " >> /tmp/git-garden-delete.log
+    echo "$BRANCHES_TO_DELETE" | sed -e 's/^[ ]*origin\///' | xargs git push origin --delete > /dev/null
+  fi
+  echo
+}
+
+# Delete merged branches locally
+delete_local_merged() {
+  TARGET_BRANCH=$1
+  BRANCHES_TO_DELETE=$(
+    git branch --merged "${TARGET_BRANCH}" |
+      grep -v master |
+      grep -v "${DEFAULT_BRANCH}" || echo ""
+  )
+  if [ -n "${BRANCHES_TO_DELETE}" ]; then
+    log "Delete local branches merged to ${TARGET_BRANCH}:"
+    print_branches "$BRANCHES_TO_DELETE" "  "
+    print_branches "$BRANCHES_TO_DELETE" "  " >> /tmp/git-garden-delete.log
+    echo "$BRANCHES_TO_DELETE" | xargs git branch -d > /dev/null
+    echo
+  fi
+}
+
+log "$(date)"
+
 # Get the latest state from the origin
 git fetch --all -q
 
 # Prune branches that exist in refs/remotes but no longer exist on origin
 git remote prune origin > /dev/null
 
-echo 'Delete all remote branches that have been merged (saved refs in /tmp/delete-remote.log)'
-BRANCHES_TO_DELETE=$(
-git branch -r --merged origin/master |
-  grep origin |
-  grep -v '>' |
-  grep -v master |
-  grep -v stable
-)
-
-# Log the branches in case something goes horribly wrong
-echo ${BRANCHES_TO_DELETE} | xargs -L 1 bash -c 'echo "$(git rev-parse $1) $1"' _ > /tmp/delete-remote.log
-
-# Delete them all!
-echo ${BRANCHES_TO_DELETE} | \
-  xargs -L1 \
-  xargs git push origin --delete > /dev/null
-
-echo "Deleted $(wc -l /tmp/delete-remote.log) branches"
-echo
+delete_origin_merged master
+if [ "$DEFAULT_BRANCH" != "master" ]; then
+  delete_origin_merged "$DEFAULT_BRANCH"
+fi
 
 # Clean up anything local copies of branches we deleted from the origin.
 git remote prune origin
 
-echo Delete all local branches that have been merged
-git branch --merged master |
-  grep -v master |
-  xargs git branch -d > /tmp/delete-local.log
-echo "Deleted $(wc -l /tmp/delete-local.log) branches"
-echo
+delete_local_merged master
+if [ "$DEFAULT_BRANCH" != "master" ]; then
+  delete_local_merged "$DEFAULT_BRANCH"
+fi
 
-echo Branches on local that are not on remote
+echo 'Branches on local that are not on remote:'
 git branch -r |
   awk '{print $1}' |
   egrep -v -f /dev/fd/0 <(git branch -vv | grep origin)
