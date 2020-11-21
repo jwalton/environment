@@ -59,16 +59,10 @@ log "$(date) - Running in $(pwd)"
 # Get the latest state from the origin
 git fetch --all -q
 
-# Prune branches that exist in refs/remotes but no longer exist on origin
-git remote prune origin > /dev/null
-
 delete_origin_merged master
 if [ "$DEFAULT_BRANCH" != "master" ]; then
   delete_origin_merged "$DEFAULT_BRANCH"
 fi
-
-# Clean up anything local copies of branches we deleted from the origin.
-git remote prune origin
 
 delete_local_merged master
 if [ "$DEFAULT_BRANCH" != "master" ]; then
