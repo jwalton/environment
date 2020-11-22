@@ -51,7 +51,7 @@ fi
 
 # rust
 if [ -e "$HOME/.cargo/bin" ]; then
-    export PATH="$HOME/.cargo/bin:$PATH"
+    export PATH="$PATH:$HOME/.cargo/bin"
 fi
 
 # golang
