@@ -55,7 +55,7 @@ if [ -e "$HOME/.cargo/bin" ]; then
 fi
 
 # golang
-if [ -e "$HOME/go" ]; then
+if [ -e "$HOME/.go" ]; then
     export GOPATH=$HOME/.go
     if [[ "$OSTYPE" == "darwin"* ]] && [ -e "/usr/local/opt/go" ]; then
         # golang is installed with brew - need to add to path.
