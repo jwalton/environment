@@ -24,5 +24,105 @@
 {
     "key": "ctrl+shift+-",
     "command": "-workbench.action.navigateForward"
+},
+{
+    "key": "cmd+right",
+    "command": "-cursorEnd",
+    "when": "textInputFocus"
+},
+{
+    "key": "cmd+right",
+    "command": "cursorWordEndRight",
+    "when": "textInputFocus"
+},
+{
+    "key": "alt+right",
+    "command": "-cursorWordEndRight",
+    "when": "textInputFocus"
+},
+{
+    "key": "cmd+left",
+    "command": "cursorWordLeft",
+    "when": "textInputFocus"
+},
+{
+    "key": "alt+left",
+    "command": "-cursorWordLeft",
+    "when": "textInputFocus"
+},
+{
+    "key": "shift+cmd+right",
+    "command": "cursorWordEndRightSelect",
+    "when": "textInputFocus"
+},
+{
+    "key": "shift+alt+right",
+    "command": "-cursorWordEndRightSelect",
+    "when": "textInputFocus"
+},
+{
+    "key": "shift+cmd+left",
+    "command": "cursorWordLeftSelect",
+    "when": "textInputFocus"
+},
+{
+    "key": "shift+alt+left",
+    "command": "-cursorWordLeftSelect",
+    "when": "textInputFocus"
+},
+{
+    "key": "shift+cmd+right",
+    "command": "-cursorEndSelect",
+    "when": "textInputFocus"
+},
+{
+    "key": "cmd+left",
+    "command": "-cursorHome",
+    "when": "textInputFocus"
+},
+{
+    "key": "shift+cmd+left",
+    "command": "-cursorHomeSelect",
+    "when": "textInputFocus"
+},
+{
+    "key": "alt+cmd+left",
+    "command": "cursorWordPartLeft",
+    "when": "textInputFocus"
+},
+{
+    "key": "ctrl+alt+left",
+    "command": "-cursorWordPartLeft",
+    "when": "textInputFocus"
+},
+{
+    "key": "shift+alt+cmd+left",
+    "command": "cursorWordPartLeftSelect",
+    "when": "textInputFocus"
+},
+{
+    "key": "ctrl+shift+alt+left",
+    "command": "-cursorWordPartLeftSelect",
+    "when": "textInputFocus"
+},
+{
+    "key": "alt+cmd+right",
+    "command": "cursorWordPartRight",
+    "when": "textInputFocus"
+},
+{
+    "key": "ctrl+alt+right",
+    "command": "-cursorWordPartRight",
+    "when": "textInputFocus"
+},
+{
+    "key": "shift+alt+cmd+right",
+    "command": "cursorWordPartRightSelect",
+    "when": "textInputFocus"
+},
+{
+    "key": "ctrl+shift+alt+right",
+    "command": "-cursorWordPartRightSelect",
+    "when": "textInputFocus"
 }
 ]

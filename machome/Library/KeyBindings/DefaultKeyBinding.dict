@@ -1,8 +1,50 @@
 {
-    "\UF729"  = "moveToBeginningOfLine:";
+    /* See https://blog.victormendonca.com/2020/04/27/how-to-change-macos-key-bindings/ */
+    /* Note this assumes you've swapped CTRL and CMD. */
+    /* Ctrl + Left */
+    /* "^\UF702"  = "moveWordLeft:"; */
+    "@\UF702"  = "moveWordLeft:";
+
+    /* Ctrl + Right */
+    /* "^\UF703"  = "moveWordRight:"; */
+    "@\UF703"  = "moveWordRight:";
+
+    /* Ctrl + Shift + Left */
+    /* "^$\UF702" = "moveWordLeftAndModifySelection:";*/
+    "@$\UF702" = "moveWordLeftAndModifySelection:";
+
+    /* Ctrl + Shift + Right */
+    /* "^$\UF703" = "moveWordRightAndModifySelection:";*/
+    "@$\UF703" = "moveWordRightAndModifySelection:";
+
+    /* Remap Home / End keys */
+    /* Home Button*/
+    "\UF729" = "moveToBeginningOfLine:";
+    /* End Button */
+    "\UF72B" = "moveToEndOfLine:";
+
+    /* Shift + Home Button */
     "$\UF729" = "moveToBeginningOfLineAndModifySelection:";
-    "\UF72B"  = "moveToEndOfLine:";
+
+    /* Shift + End Button */
     "$\UF72B" = "moveToEndOfLineAndModifySelection:";
+
+    /* Ctrl + Home Button */
+    /* "^\UF729" = "moveToBeginningOfDocument:"; */
+    "@\UF729" = "moveToBeginningOfDocument:";
+
+    /* Ctrl + End Button */
+    /* "^\UF72B" = "moveToEndOfDocument:"; */
+    "@\UF72B" = "moveToEndOfDocument:";
+
+    /* Shift + Ctrl + Home Button */
+    /* "$^\UF729" = "moveToBeginningOfDocumentAndModifySelection:"; */
+    "$@\UF729" = "moveToBeginningOfDocumentAndModifySelection:";
+
+    /* Shift + Ctrl + End Button*/
+    /* "$^\UF72B" = "moveToEndOfDocumentAndModifySelection:"; */
+    "$@\UF72B" = "moveToEndOfDocumentAndModifySelection:";
+
     "\UF72C"  = "pageUp:";
     "\UF72D"  = "pageDown:";
 }
