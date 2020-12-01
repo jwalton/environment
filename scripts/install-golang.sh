@@ -24,4 +24,6 @@ if which go > /dev/null ; then
     go get -v github.com/sqs/goreturns
     go get -v github.com/uudashr/gopkgs/v2/cmd/gopkgs
     go get -v github.com/stamblerre/gocode
+    go get -v golang.org/x/tools/gopls
+    go get -v github.com/mdempsky/gocode
 fi
