@@ -16,7 +16,7 @@ fi
 # brew_install "brew-formula" "description"
 brew_install() {
     PKG=$1
-    DESC=${3:-$1}
+    DESC=${2:-$1}
     if ! brew ls --version ${PKG} > /dev/null; then
         log "brew: Installing ${DESC}"
         brew install ${PKG}
@@ -66,8 +66,9 @@ $DIR/install-nvm.sh
 brew_install "mas"
 brew_install "gh" "GitHub CLI"
 brew_install "awscli"
-brew_install "iproute2mac"
+brew_install "iproute2mac" "Linux ip command for MacOS"
 brew_install "youtube-dl"
+brew_install "gping" "gping - https://github.com/orf/gping"
 brew_install "gpg"
 brew_install "starship"
 brew_install "python3"
