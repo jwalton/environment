@@ -86,6 +86,7 @@ mas_install 408981434 "iMovie"
 # mas_install 682658836 "GarageBand"
 
 brew_cask_install "osxfuse"
+brew_cask_install "inkscape"
 brew_cask_install "veracrypt"
 # Handy graphical hex editor, with diff.
 brew_cask_install "hex-fiend"
