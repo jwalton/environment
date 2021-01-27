@@ -25,6 +25,9 @@ if [ -e /opt/bin ]; then
     export PATH="/opt/bin:$PATH"
 fi
 
+# Disable Homebrew analytics
+export HOMEBREW_NO_ANALYTICS=1
+
 # This lazy loads NVM, based on code from http://broken-by.me/lazy-load-nvm/
 if [ -e "$HOME/.nvm" ]; then
     load_nvm() {
