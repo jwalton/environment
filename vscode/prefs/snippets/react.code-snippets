@@ -23,6 +23,14 @@
 		],
 		"description": "Import react."
     },
+    "react ref to a div": {
+        "scope": "typescriptreact",
+        "prefix": "rdivref",
+        "body": [
+            "const ${1:divRef} = useRef<HTML${2:Div}Element>(null);",
+        ],
+        "description": "Creates a mutable reference to a div."
+    },
     "react function componet": {
         "scope": "typescriptreact",
         "prefix": "rrrfn",

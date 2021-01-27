@@ -124,5 +124,15 @@
     "key": "ctrl+shift+alt+right",
     "command": "-cursorWordPartRightSelect",
     "when": "textInputFocus"
+},
+{
+    "key": "alt+left",
+    "command": "cursorHome",
+    "when": "textInputFocus"
+},
+{
+    "key": "alt+right",
+    "command": "cursorEnd",
+    "when": "textInputFocus"
 }
 ]
