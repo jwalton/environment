@@ -1,6 +1,9 @@
 {
     "editor.autoClosingBrackets": "never",
-    "editor.rulers": [80,120],
+    "editor.rulers": [
+        80,
+        120
+    ],
     "files.trimTrailingWhitespace": true,
     "window.title": "${activeEditorLong}${separator}${rootName}",
     "window.zoomLevel": 0,
@@ -71,4 +74,8 @@
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "java.semanticHighlighting.enabled": true,
     "editor.suggest.showStatusBar": true,
+    "go.useLanguageServer": true,
+    "gopls": {
+        "ui.completion.useAutoBraces": false,
+    },
 }

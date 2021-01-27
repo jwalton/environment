@@ -17,13 +17,14 @@ fi
 
 if which go > /dev/null ; then
     export GOPATH=$HOME/.go
-    go get -u golang.org/x/tools/cmd/godoc
-    go get -u golang.org/x/lint/golint
-    go get -v github.com/ramya-rao-a/go-outline
-    go get -v github.com/rogpeppe/godef
-    go get -v github.com/sqs/goreturns
-    go get -v github.com/uudashr/gopkgs/v2/cmd/gopkgs
-    go get -v github.com/stamblerre/gocode
-    go get -v golang.org/x/tools/gopls
-    go get -v github.com/mdempsky/gocode
+    go get -u golang.org/x/tools/cmd/godoc \
+      golang.org/x/lint/golint \
+      github.com/ramya-rao-a/go-outline \
+      github.com/rogpeppe/godef \
+      github.com/sqs/goreturns \
+      github.com/uudashr/gopkgs/v2/cmd/gopkgs \
+      github.com/stamblerre/gocode \
+      golang.org/x/tools/gopls \
+      github.com/mdempsky/gocode \
+      github.com/go-delve/delve/cmd/dlv
 fi
