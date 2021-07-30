@@ -72,6 +72,7 @@ brew_install "gping" "gping - https://github.com/orf/gping"
 brew_install "gpg"
 brew_install "starship"
 brew_install "python3"
+brew_install "goreleaser/tap/goreleaser"
 
 mas_install 497799835 "Xcode"
 mas_install 803453959 "Slack"
