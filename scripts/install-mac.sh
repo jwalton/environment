@@ -33,7 +33,7 @@ brew_cask_install () {
         log_debug "brew cask: $CASK already installed"
     else
         log "brew cask: Installing $CASK"
-        brew cask install $CASK
+        brew install --cask $CASK
     fi
 }
 
@@ -73,6 +73,7 @@ brew_install "gpg"
 brew_install "starship"
 brew_install "python3"
 brew_install "goreleaser/tap/goreleaser"
+brew_install "act" # Github Actions locally
 
 mas_install 497799835 "Xcode"
 mas_install 803453959 "Slack"
@@ -93,6 +94,7 @@ brew_cask_install "veracrypt"
 brew_cask_install "hex-fiend"
 # Visualize where disk space is being used, similar to Seqouia View
 brew_cask_install "disk-inventory-x"
+brew_cask_install "karabiner-elements"
 
 # If we don't run this command, then the mac will change it's
 # hostname from DHCP.  See https://apple.stackexchange.com/questions/272036/how-to-refuse-dhcp-server-to-change-my-hostname.
