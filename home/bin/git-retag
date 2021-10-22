@@ -1,0 +1,10 @@
+TAG=$1
+COMMENT=${2:-$TAG}
+
+if [ -z "${TAG}" ]; then
+    echo "Usage: git `basename $0` <tag> [<comment>]"
+    exit 1
+fi
+
+echo "Retagging ${TAG} with comment ${COMMENT}"
+git tag -d ${TAG} && git push --delete origin ${TAG} && git tag -a ${TAG} -m ${COMMENT} && git push --follow-tags
