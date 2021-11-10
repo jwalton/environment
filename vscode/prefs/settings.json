@@ -6,11 +6,8 @@
     ],
     "files.trimTrailingWhitespace": true,
     "window.title": "${activeEditorLong}${separator}${rootName}",
-    "window.zoomLevel": 0,
-    "workbench.colorTheme": "One Monokai",
     "gitlens.codeLens.enabled": false,
     "gitlens.keymap": "chorded",
-    "diffEditor.ignoreTrimWhitespace": false,
     "gitlens.advanced.messages": {
         "suppressCommitHasNoPreviousCommitWarning": false,
         "suppressCommitNotFoundWarning": false,
@@ -21,7 +18,6 @@
         "suppressResultsExplorerNotice": false,
         "suppressShowKeyBindingsNotice": true
     },
-    "typescript.tsdk": "${env:HOME}/.nvm/versions/node/v10.14.1/lib/node_modules/typescript/lib/",
     "editor.accessibilitySupport": "off",
     "editor.codeActionsOnSave": {
     },
@@ -34,12 +30,28 @@
     "gitlens.views.fileHistory.enabled": true,
     "gitlens.views.lineHistory.enabled": true,
     "cSpell.userWords": [
-        "GDPR",
+        "alertmanager",
         "csrf",
-        "polyfill"
+        "eksctl",
+        "fstest",
+        "fsys",
+        "GDPR",
+        "grafana",
+        "IRSA",
+        "jwalton",
+        "kubectl",
+        "Kubernetes",
+        "minikube",
+        "olegtarasov",
+        "pino",
+        "polyfill",
+        "Solink",
+        "tolerations",
+        "Unstaged"
     ],
     "editor.minimap.enabled": false,
     "[typescript]": {
+
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[javascript]": {
@@ -76,6 +88,41 @@
     "editor.suggest.showStatusBar": true,
     "go.useLanguageServer": true,
     "gopls": {
-        "ui.completion.useAutoBraces": false,
+        // "ui.completion.useAutoBraces": false,
     },
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "XXX",
+        "[ ]",
+        "[x]"
+    ],
+    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "workbench.editor.untitled.hint": "hidden",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "redhat.telemetry.enabled": false,
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.inlineSuggest.enabled": true,
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": false,
+        "plaintext": false,
+        "markdown": false
+    },
+    "go.toolsManagement.autoUpdate": true,
+    "vscode-edge-devtools.mirrorEdits": true,
+    "editor.bracketPairColorization.enabled": true,
+    "workbench.colorTheme": "One Monokai",
+    "git.ignoreMissingGitWarning": true,
+    "jest.jestCommandLine": "npm-run jest",
+    "editor.guides.bracketPairs": "active"
 }

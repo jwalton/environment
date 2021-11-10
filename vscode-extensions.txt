@@ -34,7 +34,7 @@ bungcip.better-toml
 golang.go
 
 # Lots of people like this spell checker.
-# streetsidesoftware.code-spell-checker
+streetsidesoftware.code-spell-checker
 
 # Find "hidden" characters, like non-breaking spaces
 nhoizey.gremlins
@@ -50,4 +50,5 @@ mechatroner.rainbow-csv
 ms-azuretools.vscode-docker
 redhat.vscode-yaml
 VisualStudioExptTeam.vscodeintellicode
-
+mads-hartmann.bash-ide-vscode
+orta.vscode-jest
