@@ -104,3 +104,5 @@ unset PAGER
 if which starship > /dev/null; then
     eval "$(starship init zsh)"
 fi
+
+autoload -U compinit; compinit
