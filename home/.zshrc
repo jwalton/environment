@@ -101,8 +101,15 @@ source ~/.config/zsh/.iterm2_shell_integration.zsh
 
 unset PAGER
 
-if which starship > /dev/null; then
+if which kitsch-prompt > /dev/null; then
+    eval "$(kitsch-prompt init zsh)"
+elif which starship > /dev/null; then
     eval "$(starship init zsh)"
+fi
+
+# Kubectl completion
+if command kubectl &> /dev/null; then
+   source <(kubectl completion zsh)
 fi
 
 autoload -U compinit; compinit
