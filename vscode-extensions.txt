@@ -7,6 +7,9 @@
 # Color theme
 azemoh.one-monokai
 
+# Must-have git plugin
+eamodio.gitlens
+
 # Good plugin for tracking "TODO"s and "FIXME"s.
 Gruntfuggly.todo-tree
 
@@ -16,11 +19,13 @@ dbaeumer.vscode-eslint
 eg2.vscode-npm-script
 esbenp.prettier-vscode
 jpoissonnier.vscode-styled-components
-# maty.vscode-mocha-sidebar
 spoonscen.es6-mocha-snippets
 wix.vscode-import-cost
 jacobcofman.changelog
 syler.sass-indented
+# This will auto-run jest tests in the background, and make it easy to
+# debug individual tests.
+orta.vscode-jest
 
 # Python
 ms-python.python
@@ -40,10 +45,8 @@ streetsidesoftware.code-spell-checker
 nhoizey.gremlins
 
 # Misc other plugins
-CoenraadS.bracket-pair-colorizer-2
 naumovs.color-highlight
 DavidAnson.vscode-markdownlint
-eamodio.gitlens
 GitHub.vscode-pull-request-github
 GrapeCity.gc-excelviewer
 mechatroner.rainbow-csv
@@ -51,4 +54,6 @@ ms-azuretools.vscode-docker
 redhat.vscode-yaml
 VisualStudioExptTeam.vscodeintellicode
 mads-hartmann.bash-ide-vscode
-orta.vscode-jest
+
+# Use `"editor.bracketPairColorization.enabled": true` instead of this - much faster.
+# CoenraadS.bracket-pair-colorizer-2
