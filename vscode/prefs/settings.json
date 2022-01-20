@@ -1,128 +1,172 @@
 {
-    "editor.autoClosingBrackets": "never",
-    "editor.rulers": [
-        80,
-        120
-    ],
-    "files.trimTrailingWhitespace": true,
-    "window.title": "${activeEditorLong}${separator}${rootName}",
-    "gitlens.codeLens.enabled": false,
-    "gitlens.keymap": "chorded",
-    "gitlens.advanced.messages": {
-        "suppressCommitHasNoPreviousCommitWarning": false,
-        "suppressCommitNotFoundWarning": false,
-        "suppressFileNotUnderSourceControlWarning": false,
-        "suppressGitVersionWarning": false,
-        "suppressLineUncommittedWarning": false,
-        "suppressNoRepositoryWarning": false,
-        "suppressResultsExplorerNotice": false,
-        "suppressShowKeyBindingsNotice": true
-    },
-    "editor.accessibilitySupport": "off",
-    "editor.codeActionsOnSave": {
-    },
-    "gitlens.historyExplorer.enabled": true,
-    "breadcrumbs.enabled": true,
-    "telemetry.enableCrashReporter": false,
-    "telemetry.enableTelemetry": false,
-    "mocha-snippets.glob": "test/**/*.@(ts|js)",
-    "mocha-snippets.function-type": "function",
-    "gitlens.views.fileHistory.enabled": true,
-    "gitlens.views.lineHistory.enabled": true,
-    "cSpell.userWords": [
-        "alertmanager",
-        "csrf",
-        "eksctl",
-        "fstest",
-        "fsys",
-        "GDPR",
-        "grafana",
-        "IRSA",
-        "jwalton",
-        "kubectl",
-        "Kubernetes",
-        "minikube",
-        "olegtarasov",
-        "pino",
-        "polyfill",
-        "Solink",
-        "tolerations",
-        "Unstaged"
-    ],
-    "editor.minimap.enabled": false,
-    "[typescript]": {
-
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[javascriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[jsonc]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "files.hotExit": "onExitAndWindowClose",
-    "git.autofetch": true,
-    "editor.fontFamily": "'Cascadia Code', Menlo, Monaco, 'Courier New', monospace",
-    "[yaml]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "task.slowProviderWarning": [
-        "gulp"
-    ],
-    "vs-kubernetes": {
-        "vs-kubernetes.minikube-path": "${env:HOME}/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
-    },
-    "todo-tree.tree.showScanModeButton": false,
-    "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "java.semanticHighlighting.enabled": true,
-    "editor.suggest.showStatusBar": true,
-    "go.useLanguageServer": true,
-    "gopls": {
-        // "ui.completion.useAutoBraces": false,
-    },
-    "todo-tree.general.tags": [
-        "BUG",
-        "HACK",
-        "FIXME",
-        "TODO",
-        "XXX",
-        "[ ]",
-        "[x]"
-    ],
-    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
-    "[markdown]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "workbench.editor.untitled.hint": "hidden",
-    "workbench.editorAssociations": {
-        "*.ipynb": "jupyter.notebook.ipynb"
-    },
-    "redhat.telemetry.enabled": false,
-    "[html]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "editor.inlineSuggest.enabled": true,
-    "github.copilot.enable": {
-        "*": true,
-        "yaml": false,
-        "plaintext": false,
-        "markdown": false
-    },
-    "go.toolsManagement.autoUpdate": true,
-    "vscode-edge-devtools.mirrorEdits": true,
-    "editor.bracketPairColorization.enabled": true,
-    "workbench.colorTheme": "One Monokai",
-    "git.ignoreMissingGitWarning": true,
-    "jest.jestCommandLine": "npm-run jest",
-    "editor.guides.bracketPairs": "active"
+  "editor.autoClosingBrackets": "never",
+  "editor.rulers": [80, 120],
+  "files.trimTrailingWhitespace": true,
+  "window.title": "${activeEditorLong}${separator}${rootName}",
+  "gitlens.codeLens.enabled": false,
+  "gitlens.keymap": "chorded",
+  "gitlens.advanced.messages": {
+    "suppressCommitHasNoPreviousCommitWarning": false,
+    "suppressCommitNotFoundWarning": false,
+    "suppressFileNotUnderSourceControlWarning": false,
+    "suppressGitVersionWarning": false,
+    "suppressLineUncommittedWarning": false,
+    "suppressNoRepositoryWarning": false,
+    "suppressResultsExplorerNotice": false,
+    "suppressShowKeyBindingsNotice": true
+  },
+  "editor.accessibilitySupport": "off",
+  "editor.codeActionsOnSave": {},
+  "gitlens.historyExplorer.enabled": true,
+  "breadcrumbs.enabled": true,
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  "mocha-snippets.glob": "test/**/*.@(ts|js)",
+  "mocha-snippets.function-type": "function",
+  "gitlens.views.fileHistory.enabled": true,
+  "gitlens.views.lineHistory.enabled": true,
+  "cSpell.userWords": [
+    "alertmanager",
+    "Callhome",
+    "checkin",
+    "csrf",
+    "dtmf",
+    "eksctl",
+    "fstest",
+    "fsys",
+    "GDPR",
+    "grafana",
+    "hikvision",
+    "immer",
+    "IRSA",
+    "jwalton",
+    "kubectl",
+    "Kubernetes",
+    "minikube",
+    "noonlight",
+    "olegtarasov",
+    "onvif",
+    "pino",
+    "polyfill",
+    "Solink",
+    "solinkcloud",
+    "solinkcorp",
+    "toastify",
+    "tolerations",
+    "twilio",
+    "twiml",
+    "Unstaged"
+  ],
+  "editor.minimap.enabled": false,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.hotExit": "onExitAndWindowClose",
+  "git.autofetch": true,
+  "editor.fontFamily": "'Cascadia Code', Menlo, Monaco, 'Courier New', monospace",
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "task.slowProviderWarning": ["gulp"],
+  "vs-kubernetes": {
+    "vs-kubernetes.minikube-path": "${env:HOME}/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
+  },
+  "todo-tree.tree.showScanModeButton": false,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "java.semanticHighlighting.enabled": true,
+  "editor.suggest.showStatusBar": true,
+  "go.useLanguageServer": true,
+  "gopls": {
+    // "ui.completion.useAutoBraces": false,
+  },
+  "todo-tree.general.tags": [
+    "BUG",
+    "HACK",
+    "FIXME",
+    "TODO",
+    "XXX",
+    "[ ]",
+    "[x]"
+  ],
+  "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.editor.untitled.hint": "hidden",
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
+  "redhat.telemetry.enabled": false,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.inlineSuggest.enabled": true,
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": false,
+    "plaintext": false,
+    "markdown": false
+  },
+  "go.toolsManagement.autoUpdate": true,
+  "vscode-edge-devtools.mirrorEdits": true,
+  "editor.bracketPairColorization.enabled": true,
+  "workbench.colorTheme": "One Monokai",
+  "git.ignoreMissingGitWarning": true,
+  "jest.jestCommandLine": "npm-run jest",
+  "editor.guides.bracketPairs": "active",
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
+  },
+  "[dockercompose]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "json.schemas": [],
+  "yaml.customTags": [
+    "!And",
+    "!And sequence",
+    "!If",
+    "!If sequence",
+    "!Not",
+    "!Not sequence",
+    "!Equals",
+    "!Equals sequence",
+    "!Or",
+    "!Or sequence",
+    "!FindInMap",
+    "!FindInMap sequence",
+    "!Base64",
+    "!Join",
+    "!Join sequence",
+    "!Cidr",
+    "!Ref",
+    "!Sub",
+    "!Sub sequence",
+    "!GetAtt",
+    "!GetAZs",
+    "!ImportValue",
+    "!ImportValue sequence",
+    "!Select",
+    "!Select sequence",
+    "!Split",
+    "!Split sequence"
+  ],
+  "aws.telemetry": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "jest.autoRun": { "watch": false, "onSave": "test-file" }
 }
