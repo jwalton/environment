@@ -101,8 +101,8 @@ source ~/.config/zsh/.iterm2_shell_integration.zsh
 
 unset PAGER
 
-if which kitsch-prompt > /dev/null; then
-    eval "$(kitsch-prompt init zsh)"
+if command -v kitsch > /dev/null; then
+    eval "$(kitsch init zsh)"
 elif which starship > /dev/null; then
     eval "$(starship init zsh)"
 fi
