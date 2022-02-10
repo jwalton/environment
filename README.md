@@ -17,6 +17,10 @@ If you use Little Snitch, and you're on Big Sur, see instructions [here](https:/
 ## Ubuntu Installation
 
 ```sh
+# On desktop:
+sudo snap install --classic code
+sudo snap install vlc
+
 sudo apt install git -y
 mkdir -p dev && \
     cd dev && \
@@ -36,5 +40,5 @@ mkdir -p dev && \
 ### Installing Node
 
 ```sh
-./scripts/install-nvm.sh
+./scripts/install-volta.sh
 ```

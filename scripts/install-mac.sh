@@ -61,7 +61,7 @@ fi
 log "Installing Apps"
 
 $DIR/install-rust.sh
-$DIR/install-nvm.sh
+$DIR/install-volta.sh
 
 brew_install "mas"
 brew_install "gh" "GitHub CLI"

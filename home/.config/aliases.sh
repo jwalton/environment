@@ -27,7 +27,7 @@ alias cqlsh='docker exec -it cassandra cqlsh'
 
 youtube-mp3()
 {
-    youtube-dl -x --audio-format mp3 --audio-quality 0 "$1"
+    yt-dlp -x --audio-format mp3 --audio-quality 0 "$1"
 }
 
 search()

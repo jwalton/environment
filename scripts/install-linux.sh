@@ -6,15 +6,18 @@ source "${DIR}/common.sh"
 
 ARCH="$(arch)"
 
-if ! which starship > /dev/null; then
-    if "$ARCH" == "aarch64"; then
-        log_warn "Skipping starship install for Raspberry Pi."
-        # sudo apt install -qqy build-essential openssl
-        # ${DIR}/install-rust.sh
-        # # Need -j 1 here, or we'll run out of RAM on the Pi.  :(
-        # cargo install -j 1 starship
-    else
-        log "Installing starship"
-        bash -c "$(curl -fsSL https://starship.rs/install.sh)" "" -y
-    fi
+sudo apt-get install -y net-tools
+
+if ! which kitsch > /dev/null; then
+  curl https://kitschprompt.com/install.sh | sh
+fi
+
+if ! which yt-dlp > /dev/null; then
+  sudo curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp
+  sudo chmod a+rx /usr/local/bin/yt-dlp
+fi
+
+if ! which youtube-dl > /dev/null; then
+  sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
+  sudo chmod a+rx /usr/local/bin/youtube-dl
 fi
