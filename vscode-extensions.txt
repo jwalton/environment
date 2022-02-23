@@ -19,13 +19,19 @@ dbaeumer.vscode-eslint
 eg2.vscode-npm-script
 esbenp.prettier-vscode
 jpoissonnier.vscode-styled-components
-spoonscen.es6-mocha-snippets
 wix.vscode-import-cost
 jacobcofman.changelog
 syler.sass-indented
 # This will auto-run jest tests in the background, and make it easy to
 # debug individual tests.
 orta.vscode-jest
+# Mocha test runner.  To use this with a typescript project, need to add something like:
+#    "mochaExplorer.files": "test/**/*.test.ts",
+#    "mochaExplorer.require": "ts-node/register"
+# to your .vscode/settings.json.
+hbenl.vscode-mocha-test-adapter
+spoonscen.es6-mocha-snippets
+
 
 # Python
 ms-python.python
