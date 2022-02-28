@@ -6,7 +6,8 @@ source "${DIR}/common.sh"
 
 ARCH="$(arch)"
 
-sudo apt-get install -y net-tools
+sudo apt-get update
+sudo apt-get install -y net-tools curl
 
 if ! which kitsch > /dev/null; then
   curl https://kitschprompt.com/install.sh | sh

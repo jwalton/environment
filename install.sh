@@ -2,6 +2,23 @@
 set -e
 source "./scripts/common.sh"
 
+function isDesktop() {
+    read -r -p "Is this a desktop machine with a GUI? [Y/n] " input
+
+    case $input in
+        [yY][eE][sS]|[yY]|"")
+                echo yes
+                ;;
+        [nN][oO]|[nN])
+                echo no
+                ;;
+        *)
+                echo "Invalid input..."
+                exit 1
+                ;;
+    esac
+}
+
 log "Setting up zsh..."
 if ! which zsh > /dev/null; then
     if which apt > /dev/null; then
@@ -41,6 +58,24 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     ./scripts/install-mac.sh
 elif [[ "$OSTYPE" == "linux"* ]]; then
     ./scripts/install-linux.sh
+    mkdir -p "$HOME/.config"
+
+    IS_DESKTOP=false
+    if [ -e "$HOME/.config/is-desktop" ]; then
+        IS_DESKTOP=true
+    elif [ -e "$HOME/.config/is-server" ]; then
+        IS_DESKTOP=false
+    elif [ $(isDesktop) == "yes" ]; then
+        IS_DESKTOP=true
+        touch "$HOME/.config/is-desktop"
+    else
+        IS_DESKTOP=false
+        touch "$HOME/.config/is-server"
+    fi
+
+    if [[ "$IS_DESKTOP" == "true" ]]; then
+        ./scripts/install-linux-desktop.sh
+    fi
 fi
 
 ./scripts/install-vscode.sh
