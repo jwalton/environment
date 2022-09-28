@@ -26,8 +26,8 @@ syler.sass-indented
 # debug individual tests.
 orta.vscode-jest
 # Mocha test runner.  To use this with a typescript project, need to add something like:
-#    "mochaExplorer.files": "test/**/*.test.ts",
-#    "mochaExplorer.require": "ts-node/register"
+#    "mochaExplorer.files": "**/*.spec.ts",
+#    "mochaExplorer.require": "ts-node/register/transpile-only",
 # to your .vscode/settings.json.
 hbenl.vscode-mocha-test-adapter
 spoonscen.es6-mocha-snippets
