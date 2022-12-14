@@ -5,9 +5,16 @@ export AWS_DEFAULT_REGION=us-east-1
 #     export PATH="$(getconf PATH)"
 # fi
 
+# Homebrew
 if [ -e /usr/local ]; then
     export PATH=/usr/local/bin:$PATH
     export PATH=/usr/local/sbin:$PATH
+fi
+
+# Homebrew on M1 Mac
+if [ -e /opt/homebrew ]; then
+    export PATH=/opt/homebrew/bin:$PATH
+    export PATH=/opt/homebrew/sbin:$PATH
 fi
 
 # set PATH so it includes user's private bin if it exists
