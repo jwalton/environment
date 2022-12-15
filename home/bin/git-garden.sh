@@ -10,11 +10,56 @@ log() {
   echo "${1}" >> /tmp/git-garden-delete.log
 }
 
+function confirm() {
+    MESSAGE=$1
+
+    read -r -p "${MESSAGE} [Y/n] " input
+
+    case $input in
+        [yY][eE][sS]|[yY]|"")
+                echo yes
+                ;;
+        [nN][oO]|[nN])
+                echo no
+                ;;
+        *)
+                echo "Invalid input..."
+                exit 1
+                ;;
+    esac
+}
+
 # Given a list of branches, print them and their short hashes.
 print_branches() {
   BRANCHES=$1
   PREFIX=$2
   echo "$BRANCHES" | xargs -L1 -I'{}' bash -c 'printf "%s%-60s %s\n" "'"$PREFIX"'" "{}" "$(git rev-parse --short {})"'
+}
+
+delete_branches() {
+  TYPE=$1
+  BRANCHES_TO_DELETE=$2
+
+  print_branches "$BRANCHES_TO_DELETE" "  "
+  if [ $(confirm "Delete branches?") == "yes" ]; then
+    print_branches "$BRANCHES_TO_DELETE" "  " >> /tmp/git-garden-delete.log
+
+    case $TYPE in
+        "remote")
+            echo "$BRANCHES_TO_DELETE" | sed -e 's/^[ ]*origin\///' | xargs git push origin --delete > /dev/null
+            ;;
+        "local")
+            echo "$BRANCHES_TO_DELETE" | xargs git branch -d > /dev/null
+            ;;
+        *)
+            echo "Invalid type ${TYPE}"
+            exit 1
+            ;;
+    esac
+  else
+    log "Skipping deleting branches..."
+  fi
+
 }
 
 # Delete merged branches from the origin
@@ -30,9 +75,7 @@ delete_origin_merged() {
 
   if [ -n "${BRANCHES_TO_DELETE}" ]; then
     log "Delete remote branches merged to ${TARGET_BRANCH}:"
-    print_branches "$BRANCHES_TO_DELETE" "  "
-    print_branches "$BRANCHES_TO_DELETE" "  " >> /tmp/git-garden-delete.log
-    echo "$BRANCHES_TO_DELETE" | sed -e 's/^[ ]*origin\///' | xargs git push origin --delete > /dev/null
+    delete_branches "remote" "${BRANCHES_TO_DELETE}"
   fi
   echo
 }
@@ -47,10 +90,7 @@ delete_local_merged() {
   )
   if [ -n "${BRANCHES_TO_DELETE}" ]; then
     log "Delete local branches merged to ${TARGET_BRANCH}:"
-    print_branches "$BRANCHES_TO_DELETE" "  "
-    print_branches "$BRANCHES_TO_DELETE" "  " >> /tmp/git-garden-delete.log
-    echo "$BRANCHES_TO_DELETE" | xargs git branch -d > /dev/null
-    echo
+    delete_branches "local" "${BRANCHES_TO_DELETE}"
   fi
 }
 
