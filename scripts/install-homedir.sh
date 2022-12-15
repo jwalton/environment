@@ -21,4 +21,21 @@ fi
 if [[ "$OSTYPE" == "darwin"* ]]; then
     log "Copying Mac files..."
     cp -r "${DIR}/../machome/." "${HOME}/"
+
+    if which pinentry-mac > /dev/null && which gpgconf > /dev/null; then
+        log "Generating gpg-agent.conf"
+        mkdir -p ~/.gnupg
+        echo "
+# This file was automatically generated.
+# After editing this file, run `gpgconf --kill gpg-agent`
+
+# 8 Hours
+max-cache-ttl 28800
+default-cache-ttl 28800
+pinentry-program $(which pinentry-mac)
+" > ~/.gnupg/gpg-agent.conf
+        gpgconf --kill gpg-agent
+    else
+        log "Skipping gpg-agent.conf"
+    fi
 fi
