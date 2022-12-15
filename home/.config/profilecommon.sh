@@ -32,6 +32,11 @@ if [ -e /opt/bin ]; then
     export PATH="/opt/bin:$PATH"
 fi
 
+# Rancher desktop
+if [ -d "$HOME/.rd/bin" ]; then
+    export PATH="$PATH:$HOME/.rd/bin"
+fi
+
 # Disable Homebrew analytics
 export HOMEBREW_NO_ANALYTICS=1
 
