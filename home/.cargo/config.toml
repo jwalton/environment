@@ -1,3 +1,6 @@
 [cargo-new]
 name = "Jason Walton"
 email = "dev@lucid.thedreaming.org"
+
+[net]
+git-fetch-with-cli = true   # use the `git` executable for git operations
