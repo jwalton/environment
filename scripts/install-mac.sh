@@ -63,6 +63,8 @@ log "Installing Apps"
 $DIR/install-rust.sh
 $DIR/install-volta.sh
 
+brew tap weaveworks/tap
+
 brew_install "mas"
 brew_install "gh" "GitHub CLI"
 brew_install "awscli"
@@ -78,6 +80,7 @@ brew_install "goreleaser/tap/goreleaser"
 brew_install "act" # Github Actions locally
 brew_install "sops"
 brew_install "jq"
+brew_install "weaveworks/tap/eksctl"
 
 mas_install 497799835 "Xcode"
 mas_install 803453959 "Slack"
