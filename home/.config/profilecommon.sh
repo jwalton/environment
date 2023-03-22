@@ -79,6 +79,12 @@ if which rbenv > /dev/null; then
     eval "$(rbenv init -)"
 fi
 
+# Deno
+if [ -e "$HOME/.deno" ]; then
+    export DENO_INSTALL="$HOME/.deno"
+    export PATH="$PATH:$DENO_INSTALL/bin"
+fi
+
 # Add keys from keychain.
 # ssh-add -A
 
