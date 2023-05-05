@@ -10,7 +10,9 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     PATH="$PATH:/usr/local/opt/go/libexec/bin"
 elif which apt > /dev/null ; then
     sudo apt update
-    sudo apt get -y golang
+    wget https://dl.google.com/go/go1.17.6.linux-amd64.tar.gz
+    sudo tar -C /usr/local/ -xzf go1.17.6.linux-amd64.tar.gz
+    # sudo apt get -y golang
 else
     log_error "Can't figure out how to install golang!"
 fi

@@ -27,6 +27,7 @@
   "gitlens.views.lineHistory.enabled": true,
   "cSpell.userWords": [
     "alertmanager",
+    "authtoken",
     "Callhome",
     "checkin",
     "csrf",
@@ -34,30 +35,38 @@
     "eksctl",
     "fstest",
     "fsys",
+    "gchalk",
     "GDPR",
     "grafana",
     "hikvision",
     "immer",
     "IRSA",
     "jwalton",
+    "kube",
     "kubectl",
     "Kubernetes",
     "minikube",
     "noonlight",
+    "npmrc",
     "olegtarasov",
     "onvif",
     "pino",
     "polyfill",
+    "proto",
+    "querystrings",
+    "sinonjs",
     "Solink",
     "solinkcloud",
     "solinkcorp",
+    "struct",
+    "tlsv",
     "toastify",
     "tolerations",
     "twilio",
     "twiml",
-    "Unstaged"
+    "Unstaged",
+    "unwieldly"
   ],
-  "editor.minimap.enabled": false,
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -168,5 +177,20 @@
   ],
   "aws.telemetry": false,
   "diffEditor.ignoreTrimWhitespace": false,
-  "jest.autoRun": { "watch": false, "onSave": "test-file" }
+  "jest.autoRun": {
+    "watch": false
+  },
+  "git.confirmSync": false,
+  "githubPullRequests.pullBranch": "never",
+  "npm.keybindingsChangedWarningShown": true,
+  "files.associations": {
+    "*.json5": "jsonc"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.inlayHints.enabled": "offUnlessPressed",
+  "git.openRepositoryInParentFolders": "never",
+  "window.zoomLevel": 1,
+  "rust-analyzer.check.command": "clippy"
 }

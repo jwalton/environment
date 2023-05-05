@@ -40,6 +40,8 @@ ms-vscode-remote.remote-containers
 # Rust
 rust-lang.rust
 bungcip.better-toml
+# Rust debugger for MacOS
+vadimcn.vscode-lldb
 
 # Golang
 golang.go
