@@ -40,6 +40,7 @@ fi
 # Disable Homebrew analytics
 export HOMEBREW_NO_ANALYTICS=1
 
+# node
 if [ -e "$HOME/.volta" ]; then
     export VOLTA_HOME=$HOME/.volta
     export PATH="$VOLTA_HOME/bin:$PATH"
@@ -47,6 +48,11 @@ elif [ -e "$HOME/.nvm" ]; then
     export NVM_DIR="$HOME/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
+
+# Setup python 2 for node-gyp.
+if which pyenv > /dev/null; then
+    export PATH="$(pyenv root)/shims:${PATH}"
 fi
 
 # rust

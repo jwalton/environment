@@ -11,6 +11,10 @@ if ! which rustup > /dev/null; then
     source "${HOME}/.cargo/env"
     rustup update
     export PATH="$HOME/.cargo/bin:$PATH"
+
+    cargo install --locked cargo-outdated
+    cargo install --locked cargo-audit
+    cargo install --locked cargo-udeps
 else
     log_debug "Rust already installed"
 fi

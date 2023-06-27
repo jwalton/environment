@@ -76,10 +76,12 @@ brew_install "gpg"
 brew_install "pinentry-mac"
 brew_install "starship"
 brew_install "python3"
+brew_install "pyenv"
 brew_install "goreleaser/tap/goreleaser"
 brew_install "act" # Github Actions locally
 brew_install "sops"
 brew_install "jq"
+brew install "p7zip"
 brew_install "weaveworks/tap/eksctl"
 
 mas_install 497799835 "Xcode"
@@ -102,6 +104,10 @@ brew_cask_install "hex-fiend"
 # Visualize where disk space is being used, similar to Seqouia View
 brew_cask_install "disk-inventory-x"
 brew_cask_install "karabiner-elements"
+
+# Setup Python 2
+pyenv install -s 2.7.18
+pyenv global 2.7.18
 
 # If we don't run this command, then the mac will change it's
 # hostname from DHCP.  See https://apple.stackexchange.com/questions/272036/how-to-refuse-dhcp-server-to-change-my-hostname.
