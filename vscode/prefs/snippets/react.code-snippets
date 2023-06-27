@@ -1,33 +1,51 @@
 {
-  "import react": {
-    "scope": "typescriptreact,javascriptreact",
-    "prefix": "imr",
-    "body": ["import React from 'react';"],
-    "description": "Import react."
-  },
-  "react ref to a div": {
-    "scope": "typescriptreact",
-    "prefix": "rdivref",
-    "body": ["const ${1:divRef} = useRef<HTML${2:Div}Element>(null);"],
-    "description": "Creates a mutable reference to a div."
-  },
-  /// rrrfn - Create a react function component.  I use "rrr" so this won't
-  // trigger unless it's very intentional.
-  "react function componet": {
-    "scope": "typescriptreact",
-    "prefix": "rrrfn",
-    "body": [
-      "import React from 'react';",
-      "",
-      "interface ${1:MyComponent}Props {",
-      "}",
-      "",
-      "const ${1:MyComponent}: React.FC<${1:MyComponent}Props> = (props) => {",
-      "  return <div>Hello World</div>;",
-      "}",
-      "",
-      "export default React.memo(${1:MyComponent});"
-    ],
-    "description": "React function component"
-  }
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"import react": {
+		"scope": "typescriptreact,javascriptreact",
+		"prefix": "imr",
+		"body": [
+			"import React from 'react';",
+		],
+		"description": "Import react."
+    },
+    "react ref to a div": {
+        "scope": "typescriptreact",
+        "prefix": "rdivref",
+        "body": [
+            "const ${1:divRef} = useRef<HTML${2:Div}Element>(null);",
+        ],
+        "description": "Creates a mutable reference to a div."
+    },
+    "react function component": {
+        "scope": "typescriptreact",
+        "prefix": "rrrfn",
+        "body": [
+            "import React from 'react';",
+            "",
+            "interface ${1:MyComponent}Props {",
+            "}",
+            "",
+            "const ${1:MyComponent}: React.FC<${1:MyComponent}Props> = (props) => {",
+            "  return <div>Hello World</div>;",
+            "}",
+            "",
+            "export default React.memo(${1:MyComponent});",
+        ],
+        "description": "React function component"
+    }
 }

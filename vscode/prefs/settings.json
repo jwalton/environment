@@ -87,7 +87,7 @@
   },
   "files.hotExit": "onExitAndWindowClose",
   "git.autofetch": true,
-  "editor.fontFamily": "'Cascadia Code', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontFamily": "'IntelOne Mono','IBM Plex Mono','Cascadia Code', Menlo, Monaco, 'Courier New', monospace",
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -191,6 +191,7 @@
   },
   "editor.inlayHints.enabled": "offUnlessPressed",
   "git.openRepositoryInParentFolders": "never",
-  "window.zoomLevel": 1,
-  "rust-analyzer.check.command": "clippy"
+  "rust-analyzer.check.command": "clippy",
+  "editor.fontLigatures": "'ss03'",
+  "window.zoomLevel": 1
 }
