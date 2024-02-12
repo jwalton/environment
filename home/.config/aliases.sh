@@ -49,6 +49,10 @@ awsInstances()
         | grep `whoami`
 }
 
+untar7zip() {
+    7z x -so "$1" | tar xf -
+}
+
 alias din="aws ec2 describe-instances --query 'Reservations[].Instances[].[InstanceId, InstanceType, State.Name, PublicIpAddress, PrivateIpAddress, Placement.AvailabilityZone, Tags[?Key==\`Name\`].Value | [0]]' --output table"
 
 alias pubpatch="npm version patch && npm push --follow-tags && npm publish"
