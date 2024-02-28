@@ -7,4 +7,4 @@ if [ -z "${TAG}" ]; then
 fi
 
 echo "Retagging ${TAG} with comment ${COMMENT}"
-git tag -d ${TAG} && git push --delete origin ${TAG} && git tag -a ${TAG} -m ${COMMENT} && git push --follow-tags
+git tag -d ${TAG} && git push --delete origin ${TAG} && git tag -a ${TAG} -m ${COMMENT} && git push origin ${TAG}
