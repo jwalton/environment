@@ -12,6 +12,10 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-source ${HOME}/.config/aliases.sh
-source ${HOME}/.config/bash/aliases.sh
-source ${HOME}/.config/profilecommon.sh
+source "${HOME}/.config/aliases.sh"
+source "${HOME}/.config/bash/aliases.sh"
+source "${HOME}/.config/profilecommon.sh"
+
+if [ -e "${HOME}/.config/profilelocal.sh" ]; then
+    source ${HOME}/.config/profilelocal.sh
+fi
