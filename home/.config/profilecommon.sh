@@ -91,8 +91,18 @@ if [ -e "$HOME/.deno" ]; then
     export PATH="$PATH:$DENO_INSTALL/bin"
 fi
 
+# Flutter
+if [ -e "$HOME/dev/libs/flutter/bin" ]; then
+    export PATH="$PATH:$HOME/dev/libs/flutter/bin"
+fi
+
 # Add keys from keychain.
 # ssh-add -A
 
 export GPG_TTY=$(tty)
 gpgconf --launch gpg-agent
+
+# Load local profile for stuff that we only want to do on this machine.
+if [ -e "${HOME}/.config/profilelocal.sh" ]; then
+    source "${HOME}/.config/profilelocal.sh"
+fi
