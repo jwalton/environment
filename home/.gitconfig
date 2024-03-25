@@ -5,6 +5,7 @@
 [core]
 	excludesfile = ~/.gitignore_global
 	pager = less -F -X
+	editor = vim
 [alias]
 	unstash = stash pop --index
 	history = log --pretty=format:\"%h - %an: %s\"
