@@ -96,6 +96,11 @@ if [ -e "$HOME/dev/libs/flutter/bin" ]; then
     export PATH="$PATH:$HOME/dev/libs/flutter/bin"
 fi
 
+# Postgres from `brew install libpq`
+if [ -e "/opt/homebrew/opt/libpq/bin" ]; then
+    export PATH="$PATH:/opt/homebrew/opt/libpq/bin"
+fi
+
 # Add keys from keychain.
 # ssh-add -A
 
