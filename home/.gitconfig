@@ -20,3 +20,12 @@
 	gpgSign = true
 [tag]
 	gpgSign = true
+	sort = version:refname
+[branch]
+	sort = -committerdate
+[init]
+	defaultBranch = master
+[diff]
+	algorithm = histogram
+	mnemonicPrefix = true
+	renames = true
