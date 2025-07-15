@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 set -e
 
-DEFAULT_BRANCH=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')
+DEFAULT_BRANCH=$(git remote show origin  | sed -n '/HEAD branch/s/.*: //p')
+
+if [ -z "${DEFAULT_BRANCH}" ]; then
+  echo "Could not determine default branch."
+  exit 1
+fi
 
 echo "Default branch is ${DEFAULT_BRANCH}"
 
