@@ -1,7 +1,8 @@
-[user]
-	name = Jason Walton
-	email = jwalton@solinkcorp.com
-	signingkey = F61BFCB8
+[include]
+  path = ~/.config/git/personal
+; Override settings for work repositories
+[includeIf "gitdir:~/solink/**"]
+  path = ~/.config/git/solink
 [core]
 	excludesfile = ~/.gitignore_global
 	pager = less -F -X
