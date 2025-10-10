@@ -101,6 +101,11 @@ if [ -e "/opt/homebrew/opt/libpq/bin" ]; then
     export PATH="$PATH:/opt/homebrew/opt/libpq/bin"
 fi
 
+# Add Visual Studio Code (code)
+if [ -e "/Applications/Visual Studio Code.app/Contents/Resources/app/bin" ]; then
+    export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+fi
+
 # Add keys from keychain.
 # ssh-add -A
 
