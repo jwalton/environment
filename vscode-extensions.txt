@@ -39,7 +39,7 @@ ms-python.python
 ms-vscode-remote.remote-containers
 
 # Rust
-rust-lang.rust
+rust-lang.rust-analyzer
 bungcip.better-toml
 # Rust debugger for MacOS
 vadimcn.vscode-lldb
