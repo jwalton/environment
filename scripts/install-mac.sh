@@ -81,7 +81,8 @@ brew_install "goreleaser/tap/goreleaser"
 brew_install "act" # Github Actions locally
 brew_install "sops"
 brew_install "jq"
-brew install "p7zip"
+brew_install "yq"
+brew_install "p7zip"
 brew_install "weaveworks/tap/eksctl"
 
 mas_install 497799835 "Xcode"
@@ -104,6 +105,12 @@ brew_cask_install "hex-fiend"
 # Visualize where disk space is being used, similar to Seqouia View
 brew_cask_install "disk-inventory-x"
 brew_cask_install "karabiner-elements"
+
+# See https://github.com/johnste/finicky#configuration.
+# Commercial alternatives to finicky:
+# - https://sindresorhus.com/velja
+# - https://choosy.app/
+# brew_cask_install "finicky"
 
 # Setup Python 2
 pyenv install -s 2.7.18
