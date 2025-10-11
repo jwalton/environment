@@ -17,7 +17,6 @@ Gruntfuggly.todo-tree
 christian-kohler.npm-intellisense
 dbaeumer.vscode-eslint
 esbenp.prettier-vscode
-jpoissonnier.vscode-styled-components
 wix.vscode-import-cost
 jacobcofman.changelog
 syler.sass-indented

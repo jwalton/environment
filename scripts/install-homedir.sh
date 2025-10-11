@@ -25,7 +25,7 @@ rsync -av ${RSYNC_FLAGS} "${DIR}/../oh-my-zsh-themes/"* "${HOME}/.oh-my-zsh/cust
 if [ "${DRY_RUN}" != "TRUE" ]; then
     log "Restore signing key..."
     if [ -z "${GIT_SIGNING_KEY}" ]; then
-        git config --global --unset user.signingkey
+        git config --global --unset user.signingkey || true
     else
         git config --global user.signingkey "${GIT_SIGNING_KEY}"
     fi

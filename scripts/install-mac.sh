@@ -4,6 +4,8 @@ set -e
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 source "${DIR}/common.sh"
 
+echo "Installing MacOS settings..."
+
 if ! which brew > /dev/null; then
     log "Installing brew"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -60,6 +62,7 @@ fi
 
 log "Installing Apps"
 
+brew_install "openssl"
 $DIR/install-rust.sh
 $DIR/install-volta.sh
 
@@ -69,15 +72,13 @@ brew_install "mas"
 brew_install "gh" "GitHub CLI"
 brew_install "awscli"
 brew_install "iproute2mac" "Linux ip command for MacOS"
-brew_install "youtube-dl"
-brew_install "yt-dlp/taps/yt-dlp"
+brew_install "yt-dlp"
 brew_install "gping" "gping - https://github.com/orf/gping"
 brew_install "gpg"
 brew_install "pinentry-mac"
 brew_install "starship"
 brew_install "python3"
 brew_install "pyenv"
-brew_install "goreleaser/tap/goreleaser"
 brew_install "act" # Github Actions locally
 brew_install "sops"
 brew_install "jq"
@@ -85,9 +86,9 @@ brew_install "yq"
 brew_install "p7zip"
 brew_install "weaveworks/tap/eksctl"
 
-mas_install 497799835 "Xcode"
-mas_install 803453959 "Slack"
-mas_install 1147396723 "WhatsApp"
+# mas_install 497799835 "Xcode"
+# mas_install 803453959 "Slack"
+# mas_install 1147396723 "WhatsApp"
 mas_install 747648890 "Telegram"
 mas_install 784801555 "Microsoft OneNote"
 mas_install 1274495053 "Microsoft To Do"
@@ -97,14 +98,15 @@ mas_install 409203825 "Numbers"
 mas_install 408981434 "iMovie"
 # mas_install 682658836 "GarageBand"
 
-brew_cask_install "osxfuse"
+# brew_cask_install "osxfuse"
+# brew_cask_install "veracrypt"
 brew_cask_install "inkscape"
-brew_cask_install "veracrypt"
 # Handy graphical hex editor, with diff.
 brew_cask_install "hex-fiend"
 # Visualize where disk space is being used, similar to Seqouia View
 brew_cask_install "disk-inventory-x"
 brew_cask_install "karabiner-elements"
+brew_cask_install "goreleaser"
 
 # See https://github.com/johnste/finicky#configuration.
 # Commercial alternatives to finicky:
@@ -113,8 +115,8 @@ brew_cask_install "karabiner-elements"
 # brew_cask_install "finicky"
 
 # Setup Python 2
-pyenv install -s 2.7.18
-pyenv global 2.7.18
+# pyenv install -s 2.7.18
+# pyenv global 2.7.18
 
 # If we don't run this command, then the mac will change it's
 # hostname from DHCP.  See https://apple.stackexchange.com/questions/272036/how-to-refuse-dhcp-server-to-change-my-hostname.
