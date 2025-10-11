@@ -42,3 +42,46 @@ mkdir -p dev && \
 ```sh
 ./scripts/install-volta.sh
 ```
+
+## Setting up gpg for signing commits
+
+See [detailed instructions](https://withblue.ink/2020/05/17/how-and-why-to-sign-git-commits.html), but the short version is:
+
+Generate a new key:
+
+```sh
+gpg --full-generate-key
+gpg --list-secret-keys --keyid-format LONG
+gpg --armor --export YOUR_ID
+# On GitHub, Settings > SSH and GPG Keys > New GPG Key, add your key.
+git config --global user.signingkey YOUR_ID
+git config --global commit.gpgSign true
+```
+
+Or, copy existing key from another machine:
+
+```sh
+# On old machine
+gpg --list-keys
+gpg --export-secret-keys -a YOUR_KEY_ID > key_private.asc
+gpg --export -a YOUR_KEY_ID > key_public.asc
+# On new machine
+gpg --import key_private.asc && gpg --import key_public.ash
+```
+
+Rotate keys when they expire:
+
+```sh
+gpg --list-keys --keyid-format SHORT
+gpg --edit-key YOUR_KEY_ID
+list
+key 0
+expire
+2y
+y
+key 1
+expire
+2y
+y
+save
+```
