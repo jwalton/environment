@@ -85,6 +85,7 @@ brew_install "jq"
 brew_install "yq"
 brew_install "p7zip"
 brew_install "weaveworks/tap/eksctl"
+brew_install "jwalton/tap/kitsch"
 
 # mas_install 497799835 "Xcode"
 # mas_install 803453959 "Slack"
