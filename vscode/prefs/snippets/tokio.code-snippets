@@ -1,0 +1,84 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"tokio-actor": {
+		"scope": "rust",
+		"prefix": "tokio-actor",
+		"body": [
+			"use tokio::sync::{mpsc, oneshot};",
+			"",
+			"struct ${1:Foo}Actor {",
+			"    receiver: mpsc::Receiver<ActorMessage>,",
+			"    next_id: u32,",
+			"}",
+			"enum ActorMessage {",
+			"    GetUniqueId { respond_to: oneshot::Sender<u32> },",
+			"}",
+			"",
+			"impl ${1:Foo}Actor {",
+			"    fn new(receiver: mpsc::Receiver<ActorMessage>) -> Self {",
+			"        Self {",
+			"            receiver,",
+			"            next_id: 0,",
+			"        }",
+			"    }",
+			"",
+			"    async fn run(&mut self) {",
+			"        while let Some(msg) = self.receiver.recv().await {",
+			"            self.handle_message(msg);",
+			"        }",
+			"    }",
+			"",
+			"    fn handle_message(&mut self, msg: ActorMessage) {",
+			"        match msg {",
+			"            ActorMessage::GetUniqueId { respond_to } => {",
+			"                self.next_id += 1;",
+			"                let _ = respond_to.send(self.next_id);",
+			"            }",
+			"        }",
+			"    }",
+			"}",
+			"",
+			"#[derive(Clone)]",
+			"pub struct ${1:Foo}ActorHandle {",
+			"    sender: mpsc::Sender<ActorMessage>,",
+			"}",
+			"",
+			"impl ${1:Foo}ActorHandle {",
+			"    pub fn new() -> Self {",
+			"        let (sender, receiver) = mpsc::channel(8);",
+			"        let mut actor = ${1:Foo}Actor::new(receiver);",
+			"        tokio::spawn(async move { actor.run().await });",
+			"",
+			"        Self { sender }",
+			"    }",
+			"",
+			"    pub async fn get_unique_id(&self) -> u32 {",
+			"        let (send, recv) = oneshot::channel();",
+			"        let msg = ActorMessage::GetUniqueId { respond_to: send };",
+			"",
+			"        // Ignore send errors. If this send fails, so does the",
+			"        // recv.await below. There's no reason to check the",
+			"        // failure twice.",
+			"        let _ = self.sender.send(msg).await;",
+			"        recv.await.expect(\"Actor task has been killed\")",
+			"    }",
+			"}",
+		],
+		"description": "Tokio actor"
+	}
+}
