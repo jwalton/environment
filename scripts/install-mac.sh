@@ -108,6 +108,7 @@ brew_cask_install "hex-fiend"
 brew_cask_install "disk-inventory-x"
 brew_cask_install "karabiner-elements"
 brew_cask_install "goreleaser"
+brew_cask_install "syncthing"
 
 # See https://github.com/johnste/finicky#configuration.
 # Commercial alternatives to finicky:
