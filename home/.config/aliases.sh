@@ -64,3 +64,8 @@ alias iphone="open /Applications/Xcode.app/Contents/Developer/Applications/Simul
 # Get a shell inside the Docker Moby VM:
 alias macdockersh="docker run -it --rm --privileged --pid=host justincormack/nsenter1"
 # alias macdockersh="docker run -it --rm --privileged --pid=host debian nsenter -t 1 -m -u -n -i sh"
+
+# Install Meld from https://github.com/yousseb/meld.
+if [ -e /Applications/Meld.app ]; then
+    alias meld="open -W -a Meld $@"
+fi
