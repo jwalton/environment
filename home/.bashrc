@@ -84,3 +84,10 @@ fi
 if which starship > /dev/null; then
     eval "$(starship init bash)"
 fi
+
+# Source ~/.config/private.sh, which is used to set up environment variables
+# with secrets, or things you only want on a single machine.
+if [ -e "${HOME}/.config/private.sh" ]; then
+    source "${HOME}/.config/private.sh"
+fi
+

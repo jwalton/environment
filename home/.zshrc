@@ -114,16 +114,23 @@ fi
 
 autoload -U compinit; compinit
 
-if [ -e "${HOME}/miniconda3" ]; then
-    __conda_setup="$("${HOME}/miniconda3/bin/conda" 'shell.zsh' 'hook' 2> /dev/null)"
-    if [ $? -eq 0 ]; then
-        eval "$__conda_setup"
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/jwalton/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/jwalton/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/jwalton/miniconda3/etc/profile.d/conda.sh"
     else
-        if [ -f "${HOME}/miniconda3/etc/profile.d/conda.sh" ]; then
-            . "${HOME}/miniconda3/etc/profile.d/conda.sh"
-        else
-            export PATH="${HOME}/miniconda3/bin:$PATH"
-        fi
+        export PATH="/Users/jwalton/miniconda3/bin:$PATH"
     fi
-    unset __conda_setup
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+# Source ~/.config/private.sh, which is used to set up environment variables
+# with secrets, or things you only want on a single machine.
+if [ -e "${HOME}/.config/private.sh" ]; then
+    source "${HOME}/.config/private.sh"
 fi
