@@ -6,6 +6,7 @@ CLIENT_IP=$1
 DESCRIPTION=$2
 
 WG_CONF=/etc/wireguard/wg0.conf
+WG_PUBLICKEY=/etc/wireguard/server-publickey
 
 if [ -z "$CLIENT_IP" ] || [ -z "$DESCRIPTION" ]; then
   echo "Usage: $0 <client-ip> <name>"
@@ -13,7 +14,7 @@ if [ -z "$CLIENT_IP" ] || [ -z "$DESCRIPTION" ]; then
 fi
 
 # Verify this new IP isn't already in use.
-if grep -q "$CLIENT_IP" ./wg0.conf; then
+if grep -q "$CLIENT_IP" "$WG_CONF"; then
   echo "Error: IP $CLIENT_IP already in use."
   exit 1
 fi
@@ -50,7 +51,7 @@ PrivateKey = $(cat client-privatekey)
 
 [Peer]
 # remote server public key
-PublicKey = $(cat server-publickey)
+PublicKey = $(cat "$WG_PUBLICKEY")
 Endpoint = vpn.thedreaming.org:51999
 AllowedIPs = 0.0.0.0/0
 END
