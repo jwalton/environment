@@ -1,3 +1,13 @@
 background = 000000
+theme = Jason
+font-family = Cascadia Mono PL
+
 key-remap = ctrl=super
 key-remap = super=ctrl
+copy-on-select = clipboard
+working-directory = home
+
+keybind = super+a=unbind
+keybind = ctrl+a=unbind
+keybind = super+d=unbind
+
