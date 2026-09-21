@@ -10,6 +10,11 @@ newBrach()
     git push -u origin $1
 }
 
+gswb()
+{
+    git switch "$(git branch --sort=-committerdate | fzf)"
+}
+
 alias ish="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 
 # Run `unknownHost [line number]" to remove a line from ~/.ssh/known_hosts
