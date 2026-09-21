@@ -5,14 +5,13 @@ set -e
 CWD=$(pwd)
 COVERAGE_DIR="${CWD}/target/coverage/html"
 
-if ! which grcov > /dev/null; then
-    echo "Installing grcov..."
-    cargo install grcov
-    rustup component add llvm-tools-preview
-fi
+# Install/update tools we need.
+cargo install grcov
+rustup component add llvm-tools-preview
 
 cargo clean
-CARGO_INCREMENTAL=0 RUSTFLAGS='-Cinstrument-coverage' LLVM_PROFILE_FILE='cargo-test-%p-%m.profraw' cargo test $*
+find . -name "*.profraw" -print0 | xargs -0 rm
+CARGO_INCREMENTAL=0 RUSTFLAGS='-Cinstrument-coverage' LLVM_PROFILE_FILE='cargo-test-%p-%m.profraw' cargo test "$@"
 grcov . \
     --binary-path "${CWD}/target/debug/deps/" \
     --source-dir . \
